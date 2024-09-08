@@ -1,7 +1,7 @@
 PodkraduliShop - shoes shop.
 
 What I used in development: <br />
-· [Webpack](webpack.js.org) <br />
+· [Webpack](https://webpack.js.org/) <br />
 · [React](https://react.dev/) <br />
 · [TypeScript](https://www.typescriptlang.org/) <br />
 · [Sass](https://sass-lang.com/) <br />
