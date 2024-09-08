@@ -6,5 +6,5 @@ What I used in development: <br />
 · [TypeScript](https://www.typescriptlang.org/) <br />
 · [Sass](https://sass-lang.com/) <br />
 · [Feature-Sliced Design methodology](https://feature-sliced.design/) <br />
-· [Jest](https://jestjs.io/ru/) <br />
+· [Jest](https://jestjs.io/) <br />
 · [Storybook](https://storybook.js.org/) <br />
