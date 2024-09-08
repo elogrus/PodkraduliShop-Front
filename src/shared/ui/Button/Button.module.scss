@@ -1,0 +1,15 @@
+.Button {
+    background-color: var(--cl1);
+    border: 0;
+    padding: 5px 10px;
+    font: var(--font2-r);
+    cursor: pointer;
+}
+
+.Button:hover {
+    opacity: var(--button-hover-opacity);
+}
+
+.Button:active {
+    opacity: var(--button-active-opacity);
+}

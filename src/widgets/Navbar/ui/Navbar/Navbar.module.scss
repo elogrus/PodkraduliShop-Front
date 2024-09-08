@@ -1,0 +1,39 @@
+.Navbar {
+    height: 80px;
+    width: 100%;
+    border: 1px solid red;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavbarContainer {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.NavbarLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavbarLeft:hover {
+    opacity: var(--button-hover-opacity);
+}
+
+.NavbarLeft:active {
+    opacity: var(--button-active-opacity);
+}
+
+.NavbarRight {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}

@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Cinzel";
+    src: local("Cinzel"), url("/src/app/assets/fonts/Cinzel-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Mulish";
+    src: local("Mulish"), url("/src/app/assets/fonts/Mulish-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Mulish-Italic";
+    src: local("Mulish-Italic"), url("/src/app/assets/fonts/Mulish-Italic-VariableFont_wght.ttf");
+}
+
+body {
+    --font1-s: 12px "Cinzel", serif;
+    --font1-r: 16px "Cinzel", serif;
+    --font1-b: 20px "Cinzel", serif;
+    --font1-l: 24px "Cinzel", serif;
+    
+    --font2-s: 12px "Mulish", sans-serif;
+    --font2-r: 16px "Mulish", sans-serif;
+    --font2-b: 20px "Mulish", sans-serif;
+    --font2-l: 24px "Mulish", sans-serif;
+    
+    --font3-s: 12px "Mulish-Italic", sans-serif;
+    --font3-r: 16px "Mulish-Italic", sans-serif;
+    --font3-b: 20px "Mulish-Italic", sans-serif;
+    --font3-l: 24px "Mulish-Italic", sans-serif;
+    
+}
