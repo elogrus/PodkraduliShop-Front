@@ -1,10 +1,10 @@
 PodkraduliShop - shoes shop.
 
-What I used in development:
-[Webpack](webpack.js.org)
-[React](https://react.dev/)
-[TypeScript](https://www.typescriptlang.org/)
-[Sass](https://sass-lang.com/)
-[Feature-Sliced Design methodology](https://feature-sliced.design/)
-[Jest](https://jestjs.io/ru/)
-[Storybook](https://storybook.js.org/)
+What I used in development: <br />
+[Webpack](webpack.js.org) <br />
+[React](https://react.dev/) <br />
+[TypeScript](https://www.typescriptlang.org/) <br />
+[Sass](https://sass-lang.com/) <br />
+[Feature-Sliced Design methodology](https://feature-sliced.design/) <br />
+[Jest](https://jestjs.io/ru/) <br />
+[Storybook](https://storybook.js.org/) <br />
