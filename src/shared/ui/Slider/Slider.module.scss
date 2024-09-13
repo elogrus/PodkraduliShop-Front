@@ -1,0 +1,58 @@
+.Slider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.SliderWindow {
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+    width: min-content;
+    height: min-content;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.SliderLine {
+    display: flex;
+}
+
+.Button {
+    background-color: transparent;
+    padding: 8px;
+    &:first-child {
+        rotate: 180deg;
+    }
+}
+
+.Arrow {
+    height: 20px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Vertical {
+    &.Slider {
+        flex-direction: column;
+        width: fit-content;
+        height: 100%;
+    }
+
+    .SliderWindow {
+        flex-direction: column;
+    }
+
+    .SliderLine {
+        flex-direction: column;
+    }
+
+    .Arrow {
+        rotate: 90deg;
+    }
+}

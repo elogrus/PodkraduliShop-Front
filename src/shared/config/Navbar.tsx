@@ -5,11 +5,7 @@ interface NavbarItemNotation {
 
 export const NavbarItems: NavbarItemNotation[] = [
     {
-        name: 'About',
-        path: '/about'
-    },
-    {
-        name: 'Home',
-        path: '/home'
+        name: 'Товары',
+        path: '/products'
     }
 ]

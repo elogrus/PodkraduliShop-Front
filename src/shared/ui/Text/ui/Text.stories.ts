@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Text, TextPreset, TextMods } from './Text';
+import { TextPreset, TextMods, TextColor } from '../types/Text';
+import { Text } from './Text';
 
 const meta = {
     title: 'shared/Text',
@@ -54,6 +55,62 @@ export const Underscore: Story = {
 export const Bold: Story = {
     args: {
         mods: [TextMods.BOLD],
+        children: 'Some text',
+    },
+};
+
+export const Cross: Story = {
+    args: {
+        mods: [TextMods.CROSS],
+        children: 'Some text',
+    },
+};
+
+export const Color0: Story = {
+    args: {
+        color: TextColor.CL0,
+        children: 'Some text',
+    },
+};
+
+export const Color1: Story = {
+    args: {
+        color: TextColor.CL1,
+        children: 'Some text',
+    },
+};
+
+export const Color2: Story = {
+    args: {
+        color: TextColor.CL2,
+        children: 'Some text',
+    },
+};
+
+export const Color3: Story = {
+    args: {
+        color: TextColor.CL3,
+        children: 'Some text',
+    },
+};
+
+export const Color4: Story = {
+    args: {
+        color: TextColor.CL4,
+        children: 'Some text',
+    },
+};
+
+export const Color5: Story = {
+    args: {
+        color: TextColor.CL5,
+        children: 'Some text',
+    },
+};
+
+export const Color6: Story = {
+    args: {
+        color: TextColor.CL6,
         children: 'Some text',
     },
 };

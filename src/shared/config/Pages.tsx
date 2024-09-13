@@ -1,5 +1,7 @@
+import { DetailProductPage } from "pages/DetailProductPage";
+import { ProductsPage } from "pages/ProductsPage/";
 import { ReactNode } from "react";
-import { Navigate, redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 interface PageNotation {
     name: string;
@@ -9,23 +11,18 @@ interface PageNotation {
 
 export const Pages: PageNotation[] = [
     {
-        name: 'About',
-        path: '/about',
-        element: <div>About</div>
+        name: 'Товары',
+        path: '/product/:id',
+        element: <DetailProductPage />
     },
     {
-        name: 'Home',
-        path: '/home',
-        element: <div>Home</div>
-    },
-    {
-        name: '404',
-        path: '/404',
-        element: <div>404</div>
+        name: 'Товары',
+        path: '/products',
+        element: <ProductsPage />
     },
     {
         name: 'Redirect',
         path: '*',
-        element: <Navigate to='/'/>
+        element: <Navigate to='/products' />
     },
 ]

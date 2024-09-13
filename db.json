@@ -1,0 +1,119 @@
+{
+    "products": [
+        {
+            "id": 1234,
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": 12344,
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": 12343,
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": 12342,
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": 12341,
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": 2234,
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": 3234,
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": 4234,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": 5234,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        }
+    ],
+    "posts": [
+        {
+            "id": "1",
+            "title": "a title",
+            "views": 100
+        },
+        {
+            "id": "2",
+            "title": "another title",
+            "views": 200
+        }
+    ],
+    "comments": [
+        {
+            "id": "1",
+            "text": "a comment about post 1",
+            "postId": "1"
+        },
+        {
+            "id": "2",
+            "text": "another comment about post 1",
+            "postId": "1"
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}

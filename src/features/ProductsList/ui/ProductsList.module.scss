@@ -1,0 +1,19 @@
+.ProductsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.LoadingList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.List {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 20px;
+}

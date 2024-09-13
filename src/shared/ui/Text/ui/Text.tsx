@@ -1,26 +1,14 @@
 import { ReactNode } from 'react';
 import * as cls from './Text.module.scss';
 import { compareClasses as cmcl } from 'shared/lib/classNames';
+import { TextColor, TextMods, TextPreset } from '../types/Text';
 
-
-export enum TextPreset {
-    SMALL = "preset_small",
-    REGULAR = "preset_regular",
-    SUBTITLE = "preset_subtitle",
-    TITLE = "preset_title",
-    LOGO = 'preset_logo'
-}
-
-export enum TextMods {
-    UNDERSCORE = 'mode_underscore',
-    BOLD = 'mode_bold'
-}
-
-interface TextProps {
+export interface TextProps {
     children: ReactNode;
     className?: string;
     preset?: TextPreset;
     mods?: (TextMods)[];
+    color?: TextColor;
 }
 
 export const Text = (props: TextProps) => {
@@ -29,6 +17,7 @@ export const Text = (props: TextProps) => {
         children,
         preset = TextPreset.REGULAR,
         mods = [],
+        color = TextColor.CL5,
         ...otherProps
     } = props;
 
@@ -38,8 +27,8 @@ export const Text = (props: TextProps) => {
     }
 
     return (
-        <div className={cmcl(cls.Text, {}, [cls[preset], ...modsClasses, className])} {...otherProps}>
+        <span className={cmcl(cls.Text, {}, [cls[preset], cls[color], ...modsClasses, className])} {...otherProps}>
             {children}
-        </div>
+        </span>
     );
 };

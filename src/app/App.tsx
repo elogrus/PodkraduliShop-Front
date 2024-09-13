@@ -1,27 +1,26 @@
 import * as cls from './App.module.scss';
-import {
-    BrowserRouter,
-    Route,
-    Routes
-} from "react-router-dom";
-import { Navbar } from 'widgets/Navbar';
 import { Pages } from 'shared/config/Pages';
+import { Navbar } from 'widgets/Navbar';
+import { LoadingPage } from 'pages/LoadingPage';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Footer } from 'widgets/Footer';
+import { Providers } from './providers';
 
-interface AppProps {
-    className?: string;
-}
 export const App = () => {
     return (
-        <BrowserRouter>
+        <Providers>
             <div className={cls.App}>
                 <Navbar />
-                <Routes>
-                    {Pages.map((page) => {
-                        return <Route key={page.name} path={page.path} element={page.element} />
-                    })}
-                </Routes>
+                <Suspense fallback={<LoadingPage />}>
+                    <Routes>
+                        {Pages.map((page) => {
+                            return <Route key={page.name} path={page.path} element={page.element} />
+                        })}
+                    </Routes>
+                </Suspense>
+                <Footer />
             </div>
-        </BrowserRouter>
-
+        </Providers>
     );
 };

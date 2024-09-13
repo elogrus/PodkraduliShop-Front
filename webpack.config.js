@@ -41,11 +41,25 @@ const config = {
             },
             {
                 test: /\.css$/i,
-                use: [stylesHandler, 'css-loader'],
+                use: [stylesHandler, {
+                    loader: 'css-loader',
+                    options: {
+                        modules: {
+                            localIdentName: isProduction ? '[hash:base64:5]' : '[name]__[local]--[hash:base64:5]',
+                        },
+                    },
+                },],
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: [stylesHandler, 'css-loader', 'sass-loader'],
+                use: [stylesHandler, {
+                    loader: 'css-loader',
+                    options: {
+                        modules: {
+                            localIdentName: isProduction ? '[hash:base64:5]' : '[name]__[local]--[hash:base64:5]',
+                        },
+                    },
+                }, 'sass-loader'],
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,

@@ -14,6 +14,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Regular: Story = {
+export const Black: Story = {
     args: {},
+};
+
+export const White: Story = {
+    args: {
+        textColor: 'WHITE'
+    },
 };
