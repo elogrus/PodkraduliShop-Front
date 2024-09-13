@@ -1,15 +1,10 @@
-# 🚀 Welcome to your new awesome project!
+PodkraduliShop - shoes shop.
 
-This project has been created using **webpack-cli**, you can now run
-
-```
-npm run build
-```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
+What I used in development: <br />
+· [Webpack](https://webpack.js.org/) <br />
+· [React](https://react.dev/) <br />
+· [TypeScript](https://www.typescriptlang.org/) <br />
+· [Sass](https://sass-lang.com/) <br />
+· [Feature-Sliced Design methodology](https://feature-sliced.design/) <br />
+· [Jest](https://jestjs.io/) <br />
+· [Storybook](https://storybook.js.org/) <br />
