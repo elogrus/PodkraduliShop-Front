@@ -1,9 +1,16 @@
 .Button {
+    cursor: pointer;
+}
+
+.preset_regular {
     background-color: var(--cl1);
     border: 0;
     padding: 5px 10px;
     font: var(--font2-r);
-    cursor: pointer;
+}
+
+.preset_clear {
+    do: do;
 }
 
 .Button:hover {

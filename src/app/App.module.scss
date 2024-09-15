@@ -15,5 +15,8 @@ a {
 }
 
 .App {
-    do: do;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: var(--page_fullheight);
 }

@@ -6,12 +6,12 @@ import { Navigate } from "react-router-dom";
 interface PageNotation {
     name: string;
     path: string;
-    element: ReactNode;
+    element?: ReactNode;
 }
 
 export const Pages: PageNotation[] = [
     {
-        name: 'Товары',
+        name: 'Товар',
         path: '/product/:id',
         element: <DetailProductPage />
     },

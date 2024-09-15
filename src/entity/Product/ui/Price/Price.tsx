@@ -2,6 +2,7 @@ import { Currency } from 'shared/types/Currency';
 import { TextColor, TextMods, TextPreset } from 'shared/ui/Text/types/Text';
 import { Text } from 'shared/ui/Text/ui/Text';
 import * as cls from './Price.module.scss';
+import { compareClasses as cmcl } from 'shared/lib/classNames';
 
 interface PriceProps {
     className?: string;
@@ -13,7 +14,7 @@ interface PriceProps {
 export const Price = (props: PriceProps) => {
     const { className, price, currency, discount = 0, ...otherProps } = props;
     return (
-        <div className={cls.Price} {...otherProps}>
+        <div className={cmcl(cls.Price, {}, [className])} {...otherProps}>
             <span>
                 <Text color={TextColor.CL3} preset={TextPreset.SUBTITLE} mods={[TextMods.UNDERSCORE, TextMods.BOLD]}>{price / 100 * (100 - discount)}</Text>
                 <Text color={TextColor.CL3} preset={TextPreset.SUBTITLE} mods={[TextMods.BOLD]}>{currency} </Text>
@@ -22,9 +23,6 @@ export const Price = (props: PriceProps) => {
                 <Text color={TextColor.CL3} preset={TextPreset.SMALL} mods={[TextMods.CROSS, TextMods.BOLD]}>{price}</Text>
                 <Text color={TextColor.CL3} preset={TextPreset.SMALL} mods={[TextMods.CROSS, TextMods.BOLD]}>{currency}</Text>
             </>}
-
-            {/* {product.discount && <Text color={TextColor.CL4} preset={TextPreset.REGULAR} mods={[TextMods.BOLD]}>  -{product.discount}%</Text>} */}
-
         </div>
     );
 };

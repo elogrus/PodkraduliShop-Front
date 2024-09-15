@@ -1,23 +1,19 @@
-.Slider {
+.Carousel {
     display: flex;
     align-items: center;
-    width: 100%;
-    height: fit-content;
 }
 
-.SliderWindow {
-    display: flex;
-    align-items: center;
+.CarouselWindow {
     overflow: scroll;
-    width: min-content;
-    height: min-content;
-
+    width: 100%;
     &::-webkit-scrollbar {
         display: none;
     }
 }
 
-.SliderLine {
+.CarouselLine {
+    width: fit-content;
+    height: auto;
     display: flex;
 }
 
@@ -38,21 +34,31 @@
 }
 
 .Vertical {
-    &.Slider {
+    &.Carousel {
         flex-direction: column;
+        height: 100%;
         width: fit-content;
+    }
+
+    .CarouselWindow {
+        flex-direction: column;
+        width: auto;
         height: 100%;
     }
 
-    .SliderWindow {
+    .CarouselLine {
         flex-direction: column;
-    }
-
-    .SliderLine {
-        flex-direction: column;
+        height: fit-content;
+        width: auto;
     }
 
     .Arrow {
         rotate: 90deg;
+    }
+}
+
+.NoButtons {
+    .Button {
+        display: none;
     }
 }

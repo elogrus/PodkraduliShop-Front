@@ -6,8 +6,8 @@ export interface DetailProductAttribute {
 }
 
 export interface DetailProductImage {
-    full: string;
-    mini: string;
+    imageURL: string;
+    miniURL: string;
 }
 
 export interface DetailProductType {
@@ -19,8 +19,4 @@ export interface DetailProductType {
     discount?: number;
     attributes: DetailProductAttribute[];
     imagesURL: DetailProductImage[];
-}
-
-export interface DetailProductSchema {
-    product: DetailProductType | null;
 }

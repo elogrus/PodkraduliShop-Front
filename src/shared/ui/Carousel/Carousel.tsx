@@ -1,11 +1,11 @@
-import { ReactElement, useRef, useState } from 'react';
+import { ReactElement, useEffect, useRef, useState } from 'react';
 import { compareClasses as cmcl } from 'shared/lib/classNames';
 import { Button } from '../Button/Button';
-import * as cls from './Slider.module.scss';
+import * as cls from './Carousel.module.scss';
 import { ArrowIcon } from '../Icons/ArrowIcon/ArrowIcon';
 import { rotate } from '../Loader/Loader.module.scss';
 
-interface SliderProps {
+interface CarouselProps {
     className?: string;
     elements: ReactElement[];
     scrollLength?: number;
@@ -13,10 +13,21 @@ interface SliderProps {
     vertical?: boolean;
 }
 
-export const Slider = (props: SliderProps) => {
+export const Carousel = (props: CarouselProps) => {
     const { className, elements, gapBetweenElements = 7, scrollLength = 100, vertical = false, ...otherProps } = props;
     const [linePos, setLinePos] = useState(0)
-    const sliderLineRef = useRef<HTMLDivElement>(null)
+    const [isButtonHidden, setIsButtonHidden] = useState(false)
+    const CarouselLineRef = useRef<HTMLDivElement>(null)
+    const CarouselWindowRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (vertical) {
+            if (CarouselLineRef.current.getBoundingClientRect().height <= CarouselWindowRef.current.getBoundingClientRect().height) setIsButtonHidden(true)
+        } else {
+            if (CarouselLineRef.current.getBoundingClientRect().width <= CarouselWindowRef.current.getBoundingClientRect().width) setIsButtonHidden(true)
+        }
+        
+    }, [elements])
 
     const scrollByOptionsPrev: ScrollToOptions = {
         left: vertical ? 0 : -scrollLength,
@@ -31,23 +42,23 @@ export const Slider = (props: SliderProps) => {
     }
 
     const scrollPrev = () => {
-        sliderLineRef.current.scrollBy(scrollByOptionsPrev)
+        CarouselWindowRef.current.scrollBy(scrollByOptionsPrev)
         if (linePos !== 0) setLinePos((prev) => prev - 1)
 
     }
 
     const scrollNext = () => {
-        sliderLineRef.current.scrollBy(scrollByOptionsNext)
+        CarouselWindowRef.current.scrollBy(scrollByOptionsNext)
         if (linePos !== elements.length - 1) setLinePos((prev) => prev + 1)
     }
 
     return (
-        <div className={cmcl(cls.Slider, { [cls.Vertical]: vertical }, [className])} {...otherProps}>
+        <div className={cmcl(cls.Carousel, { [cls.Vertical]: vertical, [cls.NoButtons]: isButtonHidden }, [className])} {...otherProps}>
             <Button className={cls.Button} onClick={scrollPrev}>
                 <ArrowIcon className={cls.Arrow} />
             </Button>
-            <div className={cls.SliderWindow} ref={sliderLineRef}>
-                <div style={{ gap: gapBetweenElements }} className={cls.SliderLine}>
+            <div className={cls.CarouselWindow} ref={CarouselWindowRef}>
+                <div style={{ gap: gapBetweenElements }} className={cls.CarouselLine} ref={CarouselLineRef}>
                     {elements}
                 </div>
             </div>

@@ -1,10 +1,11 @@
 import { compareClasses as cmcl } from 'shared/lib/classNames';
 import { Link } from 'shared/ui/Link/Link';
-import { Price } from 'shared/ui/Price/Price';
+import { Price } from 'entity/Product/ui/Price/Price';
 import { TextColor, TextPreset } from 'shared/ui/Text/types/Text';
 import { Text } from 'shared/ui/Text/ui/Text';
-import { ProductType } from '../types/Product';
+import { ProductType } from '../../types/Product';
 import * as cls from './Product.module.scss';
+import { URLs } from 'shared/consts/urls';
 
 interface ProductProps {
     className?: string;
@@ -14,8 +15,8 @@ interface ProductProps {
 export const Product = (props: ProductProps) => {
     const { className, product, ...otherProps } = props;
     return (
-        <Link target='_blank' to={product.productUrl} className={cmcl(cls.Product, {}, [className])} {...otherProps}>
-            <img className={cls.ProductImage} src={product.imageURL}></img>
+        <Link target='_blank' to={URLs.DETAIL_PRODUCT_PAGE_URL_WITHOUT_ID + product.id} className={cmcl(cls.Product, {}, [className])} {...otherProps}>
+            <img loading="lazy" className={cls.ProductImage} src={product.imageURL}></img>
 
             <div className={cls.ProductWrapper}>
                 <Text preset={TextPreset.TITLE}>{product.title}</Text>

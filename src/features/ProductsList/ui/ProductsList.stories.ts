@@ -4,9 +4,8 @@ import { Currency } from 'shared/types/Currency';
 import { ProductType } from 'entity/Product/types/Product';
 const products: ProductType[] = [
     {
-        "id": 1234,
+        "id": '1234',
         "discount": 20,
-        "productUrl": "https://google.com",
         "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
         "title": "Подкрадули",
         "description": "Нереально мощные",
@@ -14,9 +13,8 @@ const products: ProductType[] = [
         "currency": Currency.USD
     },
     {
-        "id": 2234,
+        "id": '2234',
         "discount": 20,
-        "productUrl": "https://google.com",
         "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
         "title": "Подкрадули",
         "description": "Нереально мощные",
@@ -24,9 +22,8 @@ const products: ProductType[] = [
         "currency": Currency.RUB
     },
     {
-        "id": 3234,
+        "id": '3234',
         "discount": 20,
-        "productUrl": "https://google.com",
         "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
         "title": "Подкрадули",
         "description": "Нереально мощные",

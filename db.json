@@ -1,7 +1,74 @@
 {
+    "cat1": {
+        "id": "cat1",
+        "title": "Кот",
+        "description": "Классный кот, десять из десяти",
+        "price": 1000,
+        "currency": "₽",
+        "attributes": [
+            {
+                "title": "Красивый",
+                "value": true
+            },
+            {
+                "title": "Пушистость",
+                "value": 50
+            },
+            {
+                "title": "Мурчание",
+                "value": "Отменноеasd asdasdasdasdasd asdasdasdas aaaaaaaaa aaaa aaaaaaaaaaaaa aaaaaaaaaa"
+            }
+        ],
+        "imagesURL": [
+            {
+                "imageURL": "http://localhost:3001/delay",
+                "miniURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM1cDnT1Q5ZrkfLfxiSgFvC2ZsjpngynJGvg&s"
+            },
+            {
+                "imageURL": "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg"
+            },
+            {
+                "imageURL": "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg"
+            }
+        ]
+    },
+    "cat2": {
+        "id": "cat2",
+        "discount": 10,
+        "title": "Кот",
+        "description": "Классный кот, десять из десяти",
+        "price": 1000,
+        "currency": "₽",
+        "attributes": [
+            {
+                "title": "Красивый",
+                "value": true
+            },
+            {
+                "title": "Пушистость",
+                "value": 50
+            },
+            {
+                "title": "Мурчание",
+                "value": "Отменное"
+            }
+        ],
+        "imagesURL": [
+            {
+                "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGB5Eyw4sOrFqcD10-h-FTBwP1MD_Q7nK0GA&s",
+                "miniURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM1cDnT1Q5ZrkfLfxiSgFvC2ZsjpngynJGvg&s"
+            },
+            {
+                "imageURL": "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg"
+            },
+            {
+                "imageURL": "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg"
+            }
+        ]
+    },
     "products": [
         {
-            "id": 1234,
+            "id": "cat1",
             "discount": 20,
             "productUrl": "https://google.com",
             "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
@@ -11,76 +78,8 @@
             "currency": "$"
         },
         {
-            "id": 12344,
+            "id": "cat2",
             "discount": 20,
-            "productUrl": "https://google.com",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
-            "title": "Подкрадули",
-            "description": "Нереально мощные",
-            "price": 1000,
-            "currency": "$"
-        },
-        {
-            "id": 12343,
-            "discount": 20,
-            "productUrl": "https://google.com",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
-            "title": "Подкрадули",
-            "description": "Нереально мощные",
-            "price": 1000,
-            "currency": "$"
-        },
-        {
-            "id": 12342,
-            "discount": 20,
-            "productUrl": "https://google.com",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
-            "title": "Подкрадули",
-            "description": "Нереально мощные",
-            "price": 1000,
-            "currency": "$"
-        },
-        {
-            "id": 12341,
-            "discount": 20,
-            "productUrl": "https://google.com",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
-            "title": "Подкрадули",
-            "description": "Нереально мощные",
-            "price": 1000,
-            "currency": "$"
-        },
-        {
-            "id": 2234,
-            "discount": 20,
-            "productUrl": "https://google.com",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
-            "title": "Подкрадули",
-            "description": "Нереально мощные",
-            "price": 1000,
-            "currency": "$"
-        },
-        {
-            "id": 3234,
-            "discount": 20,
-            "productUrl": "https://google.com",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
-            "title": "Подкрадули",
-            "description": "Нереально мощные",
-            "price": 1000,
-            "currency": "$"
-        },
-        {
-            "id": 4234,
-            "productUrl": "https://google.com",
-            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
-            "title": "Подкрадули",
-            "description": "Нереально мощные",
-            "price": 1000,
-            "currency": "$"
-        },
-        {
-            "id": 5234,
             "productUrl": "https://google.com",
             "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
             "title": "Подкрадули",

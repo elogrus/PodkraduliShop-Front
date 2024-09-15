@@ -48,7 +48,8 @@
     "name": "my-webpack-project",
     "scripts": {
         "start": "webpack serve",
-        "start:db": "npx json-server --delay 1000 db.json",
+        "start:db": "npx json-server --delay 0 --static ./staticDb db.json",
+        "start:db-delay": "npx json-server --delay 100000 --port 3001 delayDb.json",
         "build:dev": "webpack --mode=development",
         "build:prod": "webpack --mode=production --node-env=production",
         "watch": "webpack --watch",

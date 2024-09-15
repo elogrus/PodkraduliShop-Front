@@ -6,9 +6,6 @@
     padding-bottom: var(--page_bottom_padding);
     gap: 50px;
     width: 100%;
-    min-height: var(--page_fullheight);
-}
-
-.ProductsPage > * {
     max-width: var(--max_page_width);
+    min-height: var(--page_fullheight);
 }
