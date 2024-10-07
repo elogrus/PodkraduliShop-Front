@@ -1,7 +1,9 @@
-export const Paths: Record<string, string> = {
-    AUTH_PATH: "/auth",
-    DETAIL_PRODUCT_PATH: "/product/:id",
-    PRODUCTS_PATH: "/products",
-    PROFILE_PATH: "/:id",
-    SETTINGS_PATH: "/settings",
-};
+export enum Paths {
+    AUTH_PATH = "/auth",
+    DETAIL_PRODUCT_PATH = "/product/:id",
+    DETAIL_PRODUCT_PATH_WITHOUT_ID = "/product/",
+    PRODUCTS_PATH = "/products",
+    PROFILE_PATH = "/profile/:userId",
+    PROFILE_PATH_WITHOUT_ID = "/profile/",
+    SETTINGS_PATH = "/settings",
+}

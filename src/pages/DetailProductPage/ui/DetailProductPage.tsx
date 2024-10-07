@@ -1,19 +1,19 @@
 import { DetailProduct } from "entity/DetailProduct";
 import { useParams } from "react-router-dom";
+import { PageProps } from "shared/config/Pages";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import * as cls from "./DetailProductPage.module.scss";
-import { useEffect } from "react";
-import { getProductById } from "entity/DetailProduct/lib/requests";
-import { URLs } from "shared/consts/urls";
+import { usePageTitle } from "shared/hooks/usePageTitle";
 
-interface DetailProductPageProps {
+interface DetailProductPageProps extends PageProps {
     className?: string;
 }
 
 const DetailProductPage = (props: DetailProductPageProps) => {
+    usePageTitle();
     const { className, ...otherProps } = props;
     const params = useParams<"id">();
-
+    
     return (
         <div
             className={cmcl(cls.DetailProductPage, {}, [className])}

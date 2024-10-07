@@ -3,7 +3,7 @@ import { PopupButton } from "features/PopupButton/ui/PopupButton";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import * as cls from "./UserNavbarPanel.module.scss";
 import { Text } from "shared/ui/Text/ui/Text";
-import { TextColor, TextPreset } from "shared/ui/Text/types/Text";
+import { TextColor, TextMods, TextPreset } from "shared/ui/Text/types/Text";
 import { Link } from "shared/ui/Link/Link";
 import { Paths } from "shared/config/Paths";
 import { Button, ButtonPreset } from "shared/ui/Button/Button";
@@ -38,6 +38,7 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
                         <div className={cls.button}>
                             <Text
                                 preset={TextPreset.REGULAR}
+                                mods={[TextMods.BOLD]}
                                 color={TextColor.CL0}
                             >
                                 {user.name}
@@ -53,7 +54,7 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
                     openToVert="bottom"
                 >
                     <div className={cls.content}>
-                        <Link to={Paths.PROFILE_PATH}>Профиль</Link>
+                        <Link to={Paths.PROFILE_PATH_WITHOUT_ID}>Профиль</Link>
                         <Link to={Paths.SETTINGS_PATH}>Настройки</Link>
                         <hr />
                         <Button

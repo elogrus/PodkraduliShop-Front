@@ -5,7 +5,7 @@ import { UserNavbarPanel } from "./UserNavbarPanel";
 import { removeUser, setUserByJwt } from "entity/User/slice/UserSlice";
 
 const meta = {
-    title: "entity/UserNavbarPanel",
+    title: "entity/User/UserNavbarPanel",
     component: UserNavbarPanel,
     parameters: {
         layout: "centered",

@@ -2,10 +2,10 @@ export type User = {
     id: string;
     name: string;
     role: UserRoles[];
-}
+};
 
 export enum UserRoles {
-    ADMIN = 'admin'
+    ADMIN = "admin",
 }
 
 export interface JwtPayload extends User {
@@ -13,4 +13,4 @@ export interface JwtPayload extends User {
     name: string;
     role: UserRoles[];
     expires: number;
-};
+}
