@@ -48,7 +48,7 @@
     "name": "my-webpack-project",
     "scripts": {
         "start": "webpack serve",
-        "start:db": "npx json-server --delay 0 --static ./staticDb db.json",
+        "start:db": "npx json-server --delay 2 --static ./staticDb db.json",
         "start:db-delay": "npx json-server --delay 100000 --port 3001 delayDb.json",
         "build:dev": "webpack --mode=development",
         "build:prod": "webpack --mode=production --node-env=production",
@@ -62,6 +62,7 @@
         "@types/react": "^18.3.5",
         "@types/react-dom": "^18.3.0",
         "axios": "^1.7.7",
+        "jwt-decode": "^4.0.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-redux": "^9.1.2",

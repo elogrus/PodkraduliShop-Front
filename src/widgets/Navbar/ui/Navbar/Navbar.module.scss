@@ -1,3 +1,5 @@
+@import "/src/shared/ui/Button/Button.module.scss";
+
 .Navbar {
     height: var(--navbar_height);
     width: 100%;
@@ -40,4 +42,8 @@
 
 .NavbarRightItem {
     do: do;
+}
+
+.LoginLink {
+    @extend .preset_regular;
 }

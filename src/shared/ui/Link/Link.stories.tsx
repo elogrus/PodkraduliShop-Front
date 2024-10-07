@@ -7,7 +7,6 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
-    tags: ['autodocs'],
     args: {
         children: 'Some text',
         to: 'To some path'

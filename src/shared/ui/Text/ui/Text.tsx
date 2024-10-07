@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import { HTMLProps, ReactNode } from 'react';
 import * as cls from './Text.module.scss';
 import { compareClasses as cmcl } from 'shared/lib/classNames';
 import { TextColor, TextMods, TextPreset } from '../types/Text';
 
-export interface TextProps {
+export interface TextProps extends HTMLProps<HTMLSpanElement> {
     children: ReactNode;
     className?: string;
     preset?: TextPreset;

@@ -7,7 +7,7 @@ export interface DetailProductAttribute {
 
 export interface DetailProductImage {
     imageURL: string;
-    miniURL: string;
+    miniURL?: string;
 }
 
 export interface DetailProductType {

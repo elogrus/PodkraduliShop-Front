@@ -4,7 +4,8 @@ import { compareClasses as cmcl } from 'shared/lib/classNames';
 
 export enum ButtonPreset {
     REGULAR = "preset_regular",
-    CLEAR = "preset_clear"
+    RED = "preset_red",
+    CLEAR = "preset_clear",
 }
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,7 +17,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = (props: ButtonProps) => {
     const { className, children, preset = ButtonPreset.REGULAR, ...otherProps } = props;
     return (
-        <button className={cmcl(cls.Button, {}, [cls[preset] , className])} {...otherProps}>
+        <button className={cmcl(cls.Button, {}, [cls[preset], className])} {...otherProps}>
             {children}
         </button>
     );

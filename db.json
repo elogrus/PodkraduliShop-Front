@@ -1,4 +1,10 @@
 {
+    "user_avatar_mini": {
+        "someIDblabla": "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg"
+    },
+    "login": {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNvbWVJRGJsYWJsYSIsIm5hbWUiOiJWYWxlcmFFbWFlIiwicm9sZSI6W119.XPPJ7MIP7p6bBL9xQQ76cq-1-e37fms4z6fTO3o3nNE"
+    },
     "cat1": {
         "id": "cat1",
         "title": "Кот",
@@ -22,7 +28,7 @@
         "imagesURL": [
             {
                 "imageURL": "http://localhost:3001/delay",
-                "miniURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM1cDnT1Q5ZrkfLfxiSgFvC2ZsjpngynJGvg&s"
+                "miniURL": "http://localhost:3001/delay"
             },
             {
                 "imageURL": "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg"

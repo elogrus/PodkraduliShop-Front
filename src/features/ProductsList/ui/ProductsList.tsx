@@ -10,14 +10,14 @@ import { ProductType } from 'entity/Product/types/Product';
 
 interface ProductsListProps {
     className?: string;
-    getProducts: () => Promise<ResponseType<ProductType[]>>;
+    fetchProducts: () => Promise<ResponseType<ProductType[]>>;
     title?: string;
 }
 
 export const ProductsList = (props: ProductsListProps) => {
-    const { className, getProducts, title = '', ...otherProps } = props;
-    const { isLoading, result } = useLoading(getProducts)
-
+    const { className, fetchProducts, title = '', ...otherProps } = props;
+    const { isLoading, result } = useLoading(fetchProducts)
+    
     let returnedComponent = <></>
 
     if (isLoading) returnedComponent = <Loader />

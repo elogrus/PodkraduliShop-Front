@@ -2,6 +2,8 @@ import { DetailProductPage } from "pages/DetailProductPage";
 import { ProductsPage } from "pages/ProductsPage/";
 import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
+import { Paths } from "./Paths";
+import { AuthPage } from "pages/AuthPage";
 
 interface PageNotation {
     name: string;
@@ -11,18 +13,23 @@ interface PageNotation {
 
 export const Pages: PageNotation[] = [
     {
-        name: 'Товар',
-        path: '/product/:id',
-        element: <DetailProductPage />
+        name: "Авторизация",
+        path: Paths.AUTH_PATH,
+        element: <AuthPage />,
     },
     {
-        name: 'Товары',
-        path: '/products',
-        element: <ProductsPage />
+        name: "Товар",
+        path: Paths.DETAIL_PRODUCT_PATH,
+        element: <DetailProductPage />,
     },
     {
-        name: 'Redirect',
-        path: '*',
-        element: <Navigate to='/products' />
+        name: "Товары",
+        path: Paths.PRODUCTS_PATH,
+        element: <ProductsPage />,
     },
-]
+    {
+        name: "Редирект",
+        path: "*",
+        element: <Navigate to="/products" />,
+    },
+];

@@ -1,9 +1,8 @@
 import { ReactElement, useEffect, useRef, useState } from 'react';
 import { compareClasses as cmcl } from 'shared/lib/classNames';
 import { Button } from '../Button/Button';
-import * as cls from './Carousel.module.scss';
 import { ArrowIcon } from '../Icons/ArrowIcon/ArrowIcon';
-import { rotate } from '../Loader/Loader.module.scss';
+import * as cls from './Carousel.module.scss';
 
 interface CarouselProps {
     className?: string;
