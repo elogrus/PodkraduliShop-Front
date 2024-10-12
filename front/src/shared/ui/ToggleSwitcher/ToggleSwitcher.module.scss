@@ -1,0 +1,30 @@
+$ballSize: 1.1em;
+$ballStartGap: 2px;
+$sliderWidth: calc(2.5em + 2px);
+$sliderHeight: calc($ballSize + 4px);
+
+.ToggleSwitcher {
+    border-radius: 50px;
+    align-items: center;
+    justify-content: start;
+    width: $sliderWidth;
+    height: $sliderHeight;
+    outline: 1px solid var(--cl3);
+    cursor: pointer;
+    position: relative;
+}
+
+.Slider {
+    width: $ballSize;
+    height: $ballSize;
+    background-color: var(--cl3);
+    border-radius: 1000px;
+    position: absolute;
+    top: calc(($sliderHeight - $ballSize) / 2);
+    left: $ballStartGap;
+    transition: left 0.2s ease;
+}
+
+.ToggledSlider {
+    left: calc($sliderWidth - $ballSize - $ballStartGap);
+}

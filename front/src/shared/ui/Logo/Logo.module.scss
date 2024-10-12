@@ -1,0 +1,19 @@
+.Logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.LogoIcon {
+    height: 50px;
+}
+
+.TextWhite {
+    color: var(--cl0);
+}
+
+.TextBlack {
+    color: var(--cl5);
+}

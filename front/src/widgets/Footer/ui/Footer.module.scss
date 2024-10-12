@@ -1,0 +1,16 @@
+.Footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: var(--footer_height);
+    background-color: var(--cl3);
+}
+
+.FooterContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--footer_max_width);
+    padding: 0 15px;
+}

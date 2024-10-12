@@ -1,0 +1,64 @@
+.Carousel {
+    display: flex;
+    align-items: center;
+}
+
+.CarouselWindow {
+    overflow: scroll;
+    width: 100%;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.CarouselLine {
+    width: fit-content;
+    height: auto;
+    display: flex;
+}
+
+.Button {
+    background-color: transparent;
+    padding: 8px;
+    &:first-child {
+        rotate: 180deg;
+    }
+}
+
+.Arrow {
+    height: 20px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Vertical {
+    &.Carousel {
+        flex-direction: column;
+        height: 100%;
+        width: fit-content;
+    }
+
+    .CarouselWindow {
+        flex-direction: column;
+        width: auto;
+        height: 100%;
+    }
+
+    .CarouselLine {
+        flex-direction: column;
+        height: fit-content;
+        width: auto;
+    }
+
+    .Arrow {
+        rotate: 90deg;
+    }
+}
+
+.NoButtons {
+    .Button {
+        display: none;
+    }
+}

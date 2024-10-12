@@ -1,0 +1,9 @@
+.DetailProductPage {
+    display: flex;
+    width: 100%;
+    max-width: var(--max_page_width);
+    min-height: var(--page_fullheight);
+    flex-direction: column;
+    align-items: center;
+}
+

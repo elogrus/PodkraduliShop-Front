@@ -1,0 +1,13 @@
+.Link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Link:hover {
+    opacity: var(--button-hover-opacity);
+}
+
+.Link:active {
+    opacity: var(--button-active-opacity);
+}

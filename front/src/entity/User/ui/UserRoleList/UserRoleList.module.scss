@@ -1,0 +1,14 @@
+.UserRoleList {
+    display: flex;
+    width: fit-content;
+    gap: 7px;
+}
+
+.roleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cl1);
+    padding: 3px 5px;
+    border-radius: 5px;
+}

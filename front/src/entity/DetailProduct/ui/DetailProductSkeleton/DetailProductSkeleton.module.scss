@@ -1,0 +1,66 @@
+@mixin appendAnimation {
+    background: linear-gradient(90deg, var(--cl7) 0%, var(--cl7) 43%, var(--cl0) 50%, var(--cl7) 57%, var(--cl7) 100%);
+    background-size: 300% 300%;
+    animation-duration: 1.6s;
+    animation-name: running;
+    animation-iteration-count: infinite;
+}
+
+@keyframes running {
+    0% {
+        background-position: -0% 0;
+    }
+
+    95% {
+        background-position: -150% 0;
+    }
+
+    100% {
+        background-position: -150% 0;
+    }
+}
+
+.DetailProductSkeleton {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    padding: 5px;
+}
+
+.ImageLooker {
+    display: flex;
+    gap: 10px;
+}
+
+.Carousel {
+    width: 80px;
+    @include appendAnimation;
+}
+
+.Image {
+    width: 500px;
+    height: 500px;
+    @include appendAnimation;
+}
+
+.Right {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.Text {
+    height: 2.5em;
+    width: 100%;
+    @include appendAnimation;
+}
+
+.MiddleText {
+    height: 5em;
+}
+
+.BigText {
+    height: 100%;
+}

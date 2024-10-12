@@ -1,0 +1,12 @@
+.StatusInput {
+    do: do;
+}
+
+// using "input" tag to increase priority of selector
+input.GoodInput {
+    border-color: var(--cl8);
+}
+
+input.BadInput {
+    border-color: var(--cl9);
+}

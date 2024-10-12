@@ -1,0 +1,129 @@
+{
+    "user_avatar_mini": {
+        "someIDblabla": "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg"
+    },
+    "userinfo": {
+        "id": "asd",
+        "name": "Heheboooy",
+        "role": ["admin", "user"]
+    },
+    "login": {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNvbWVJRGJsYWJsYSIsIm5hbWUiOiJWYWxlcmFFbWFlIiwicm9sZSI6W119.XPPJ7MIP7p6bBL9xQQ76cq-1-e37fms4z6fTO3o3nNE"
+    },
+    "cat1": {
+        "id": "cat1",
+        "title": "Кот",
+        "description": "Классный кот, десять из десяти",
+        "price": 1000,
+        "currency": "₽",
+        "attributes": [
+            {
+                "title": "Красивый",
+                "value": true
+            },
+            {
+                "title": "Пушистость",
+                "value": 50
+            },
+            {
+                "title": "Мурчание",
+                "value": "Отменноеasd asdasdasdasdasd asdasdasdas aaaaaaaaa aaaa aaaaaaaaaaaaa aaaaaaaaaa"
+            }
+        ],
+        "imagesURL": [
+            {
+                "imageURL": "http://localhost:3001/delay",
+                "miniURL": "http://localhost:3001/delay"
+            },
+            {
+                "imageURL": "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg"
+            },
+            {
+                "imageURL": "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg"
+            }
+        ]
+    },
+    "cat2": {
+        "id": "cat2",
+        "discount": 10,
+        "title": "Кот",
+        "description": "Классный кот, десять из десяти",
+        "price": 1000,
+        "currency": "₽",
+        "attributes": [
+            {
+                "title": "Красивый",
+                "value": true
+            },
+            {
+                "title": "Пушистость",
+                "value": 50
+            },
+            {
+                "title": "Мурчание",
+                "value": "Отменное"
+            }
+        ],
+        "imagesURL": [
+            {
+                "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGB5Eyw4sOrFqcD10-h-FTBwP1MD_Q7nK0GA&s",
+                "miniURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM1cDnT1Q5ZrkfLfxiSgFvC2ZsjpngynJGvg&s"
+            },
+            {
+                "imageURL": "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg"
+            },
+            {
+                "imageURL": "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg"
+            }
+        ]
+    },
+    "products": [
+        {
+            "id": "cat1",
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        },
+        {
+            "id": "cat2",
+            "discount": 20,
+            "productUrl": "https://google.com",
+            "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBICXBSH55JYDFqpHAkZWdSp-Y9Ycwx8aq0w&s",
+            "title": "Подкрадули",
+            "description": "Нереально мощные",
+            "price": 1000,
+            "currency": "$"
+        }
+    ],
+    "posts": [
+        {
+            "id": "1",
+            "title": "a title",
+            "views": 100
+        },
+        {
+            "id": "2",
+            "title": "another title",
+            "views": 200
+        }
+    ],
+    "comments": [
+        {
+            "id": "1",
+            "text": "a comment about post 1",
+            "postId": "1"
+        },
+        {
+            "id": "2",
+            "text": "another comment about post 1",
+            "postId": "1"
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}

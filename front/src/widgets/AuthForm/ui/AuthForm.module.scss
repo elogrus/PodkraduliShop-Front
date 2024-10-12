@@ -1,0 +1,26 @@
+.AuthForm {
+    display: flex;
+}
+
+.Modal {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Button {
+    margin-top: 20px;
+}
+
+.Error {
+    margin-top: 20px;
+}
+
+input.GoodInput {
+    border-color: var(--cl8);
+}
+
+input.BadInput {
+    border-color: var(--cl9);
+}
