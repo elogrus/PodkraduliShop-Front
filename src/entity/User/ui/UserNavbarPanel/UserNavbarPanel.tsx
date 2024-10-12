@@ -1,15 +1,20 @@
 import { useAppDispatch, useAppSelector } from "app/store/store";
-import { PopupButton } from "features/PopupButton/ui/PopupButton";
-import { compareClasses as cmcl } from "shared/lib/classNames";
-import * as cls from "./UserNavbarPanel.module.scss";
-import { Text } from "shared/ui/Text/ui/Text";
-import { TextColor, TextMods, TextPreset } from "shared/ui/Text/types/Text";
-import { Link } from "shared/ui/Link/Link";
-import { Paths } from "shared/config/Paths";
-import { Button, ButtonPreset } from "shared/ui/Button/Button";
-import { URLs } from "shared/consts/urls";
 import { removeUser } from "entity/User/slice/UserSlice";
+import {
+    PopupButton,
+    PopupButtonRef,
+} from "features/PopupButton/ui/PopupButton";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { Paths } from "shared/config/Paths";
+import { URLs } from "shared/consts/urls";
+import { compareClasses as cmcl } from "shared/lib/classNames";
+import { Button, ButtonPreset } from "shared/ui/Button/Button";
+import { Link } from "shared/ui/Link/Link";
+import { TextColor, TextMods, TextPreset } from "shared/ui/Text/types/Text";
+import { Text } from "shared/ui/Text/ui/Text";
+import * as cls from "./UserNavbarPanel.module.scss";
+import axios from "axios";
 
 interface UserNavbarPanelProps {
     className?: string;
@@ -20,10 +25,18 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
     const user = useAppSelector((state) => state.user);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const popupButtonRef = useRef<PopupButtonRef>(null);
 
-    const onLogoutButtonClick = () => {
-        dispatch(removeUser());
-        navigate("/products");
+    const onLogoutButtonClick = async () => {
+        try {
+            await axios.post(URLs.LOGOUT_URL);
+            dispatch(removeUser());
+            navigate("/products");
+        } catch (error) {
+            // show some error, need to create notification modal component
+            alert('случилась какая-то ошибка')
+            popupButtonRef.current.close();
+        }
     };
 
     return (
@@ -33,6 +46,7 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
         >
             {user.isAuth ? (
                 <PopupButton
+                    ref={popupButtonRef}
                     contentWrapperClassName={cls.popupContainer}
                     button={
                         <div className={cls.button}>

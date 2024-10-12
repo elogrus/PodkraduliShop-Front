@@ -5,6 +5,7 @@ export type User = {
 };
 
 export enum UserRoles {
+    USER = "user",
     ADMIN = "admin",
 }
 
@@ -12,5 +13,4 @@ export interface JwtPayload extends User {
     id: string;
     name: string;
     role: UserRoles[];
-    expires: number;
 }

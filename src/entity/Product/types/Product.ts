@@ -8,4 +8,4 @@ export type ProductType = {
     price: number;
     currency: Currency;
     discount?: number;
-}
+};

@@ -10,11 +10,13 @@ import * as cls from "./ProductsList.module.scss";
 interface ProductsListProps {
     className?: string;
     title?: string;
+    start: number;
+    count: number;
 }
 
 export const ProductsList = (props: ProductsListProps) => {
-    const { className, title = "", ...otherProps } = props;
-    const { isLoading, result } = useLoading(fetchProducts);
+    const { className, title = "", start, count, ...otherProps } = props;
+    const { isLoading, result } = useLoading(fetchProducts, [start, count]);
 
     let returnedComponent = <></>;
 
@@ -22,7 +24,7 @@ export const ProductsList = (props: ProductsListProps) => {
     else if (result.error)
         returnedComponent = (
             <Text preset={TextPreset.SUBTITLE}>
-                Произошла ошибка: {result.errorMessage}
+                Произошла ошибка: {result.error}
             </Text>
         );
     else

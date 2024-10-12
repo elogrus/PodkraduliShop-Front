@@ -20,7 +20,7 @@ const config = {
     },
     devServer: {
         open: true,
-        host: 'localhost',
+        host: 'localhost.hehe',
         historyApiFallback: true,
     },
     plugins: [

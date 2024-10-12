@@ -1,15 +1,15 @@
 import { useAppSelector } from "app/store/store";
-import { User } from "entity/User/types/User";
-import { useEffect, useState } from "react";
-import { compareClasses as cmcl } from "shared/lib/classNames";
-import * as cls from "./UserProfile.module.scss";
-import { URLs } from "shared/consts/urls";
-import { Text } from "shared/ui/Text/ui/Text";
-import { TextPreset } from "shared/ui/Text/types/Text";
-import { Loader } from "shared/ui/Loader/Loader";
 import { getUserProfileInfo } from "entity/User/lib/requests";
+import { User } from "entity/User/types/User";
 import { UserRoleList } from "entity/User/ui/UserRoleList/UserRoleList";
+import { useEffect, useState } from "react";
 import { StringsConsts } from "shared/consts/string";
+import { URLs } from "shared/consts/urls";
+import { compareClasses as cmcl } from "shared/lib/classNames";
+import { Loader } from "shared/ui/Loader/Loader";
+import { TextPreset } from "shared/ui/Text/types/Text";
+import { Text } from "shared/ui/Text/ui/Text";
+import * as cls from "./UserProfile.module.scss";
 
 interface UserProfileProps {
     userId: string;
@@ -27,7 +27,7 @@ export const UserProfile = (props: UserProfileProps) => {
             setUser(authUser);
         } else {
             getUserProfileInfo(userId).then((res) => {
-                if (res.error) return setError(res.errorMessage);
+                if (res.error) return setError(res.error);
                 setUser(res.data);
                 document.title = res.data.name + StringsConsts.PAGE_TITLE_PART;
             });

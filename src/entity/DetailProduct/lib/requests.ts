@@ -1,17 +1,21 @@
-import axios from "axios"
-import { ResponseType } from "shared/types/Response"
-import { DetailProductType } from "../types/DetailProduct"
-import { URLs } from "shared/consts/urls"
+import axios from "axios";
+import { ResponseType } from "shared/types/Response";
+import { DetailProductType } from "../types/DetailProduct";
+import { URLs } from "shared/consts/urls";
 
-export const getProductById = async (id: string): Promise<ResponseType<DetailProductType>> => {
+export const getProductById = async (
+    id: string
+): Promise<ResponseType<DetailProductType>> => {
     try {
-        const response = await axios.get(URLs.DETAIL_PRODUCT_URL_WITHOUT_ID + id)
-        return { error: false, data: response.data }
-
+        const response = await axios.get(URLs.DETAIL_PRODUCT_URL, {
+            params: {
+                id,
+            },
+        });
+        return response.data;
     } catch (error) {
         return {
-            error: true,
-            errorMessage: error.message
-        }
+            error: error.message,
+        };
     }
-}
+};

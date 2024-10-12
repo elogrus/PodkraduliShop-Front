@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 import { Paths } from "./Paths";
 import { AuthPage } from "pages/AuthPage";
 import { ProfilePage } from "pages/ProfilePage";
+import { SettingsPage } from "pages/SettingsPage";
 
 interface PageNotation {
     name: string;
@@ -30,6 +31,11 @@ export const Pages: PageNotation[] = [
         name: "Профиль",
         path: Paths.PROFILE_PATH_WITHOUT_ID,
         element: <ProfilePage title={"Профиль"} />,
+    },
+    {
+        name: "Настройки профиля",
+        path: Paths.SETTINGS_PATH,
+        element: <SettingsPage title={"Настройки"} />,
     },
     {
         name: "Товар",

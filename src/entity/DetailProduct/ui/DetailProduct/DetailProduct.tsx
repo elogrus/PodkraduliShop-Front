@@ -24,7 +24,7 @@ export const DetailProduct = (props: DetailProductProps) => {
     else if (result.error)
         return (
             <Text preset={TextPreset.SUBTITLE}>
-                Произошла ошибка: {result.errorMessage}
+                Произошла ошибка: {result.error}
             </Text>
         );
     const product = result.data;
@@ -34,7 +34,7 @@ export const DetailProduct = (props: DetailProductProps) => {
             className={cmcl(cls.DetailProduct, {}, [className])}
             {...otherProps}
         >
-            <ImagesLooker imagesURL={product.imagesURL} />
+            {/* <ImagesLooker imagesURL={product.imagesURL} /> */}
             <div className={cls.Right}>
                 <Text preset={TextPreset.TITLE} mods={[TextMods.BOLD]}>
                     {product.title}
@@ -48,7 +48,7 @@ export const DetailProduct = (props: DetailProductProps) => {
                         {product.description}
                     </Text>
                 </div>
-                <Attributes product={product} />
+                {/* <Attributes product={product} /> */}
             </div>
         </div>
     );

@@ -16,9 +16,9 @@ const ProductsPage = (props: ProductsPageProps) => {
             className={cmcl(cls.ProductsPage, {}, [className])}
             {...otherProps}
         >
-            <ProductsList title="Самые классные" />
-            <ProductsList title="Самые продаваемые" />
-            <ProductsList title="Еще какие-то" />
+            <ProductsList title="Самые классные" start={0} count={5} />
+            <ProductsList title="Самые продаваемые" start={5} count={5} />
+            <ProductsList title="Еще какие-то" start={10} count={5} />
         </div>
     );
 };

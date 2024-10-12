@@ -44,12 +44,13 @@
         "webpack-dev-server": "^5.1.0"
     },
     "version": "1.0.0",
-    "description": "My webpack project",
-    "name": "my-webpack-project",
+    "description": "PodkraduliShop - shoes shop",
+    "name": "PodkraduliShop Frontend",
+    "author": "elogrus",
     "scripts": {
         "start": "webpack serve",
-        "start:db": "npx json-server --delay 2 --static ./staticDb db.json",
-        "start:db-delay": "npx json-server --delay 100000 --port 3001 delayDb.json",
+        "db": "npx json-server --delay 2 --static ./staticDb db.json",
+        "db-delay": "npx json-server --delay 100000 --port 3001 delayDb.json",
         "build:dev": "webpack --mode=development",
         "build:prod": "webpack --mode=production --node-env=production",
         "watch": "webpack --watch",

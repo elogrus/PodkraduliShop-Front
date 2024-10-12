@@ -4,7 +4,7 @@ import { URLs } from "shared/consts/urls";
 import { User } from "../types/User";
 
 type AuthResponse = {
-    jwt: string;
+    access: string;
 };
 
 export const auth = async (
@@ -13,19 +13,17 @@ export const auth = async (
     isRegister: boolean
 ): Promise<ResponseType<AuthResponse>> => {
     try {
-        // const response = await axios.post(URLs.LOGIN_URL, {
-        //     "name": username,
-        //     "password": password
-        // })
-        const response = await axios.get(
-            isRegister ? URLs.REGISTER_URL : URLs.LOGIN_URL
+        const response = await axios.post(
+            isRegister ? URLs.REGISTER_URL : URLs.LOGIN_URL,
+            {
+                name: username,
+                password: password,
+            }
         );
-        return { error: false, data: response.data };
+        return { data: response.data.data };
     } catch (error) {
-        return {
-            error: true,
-            errorMessage: error.message,
-        };
+        console.log(error.response);
+        return { error: error.response.data.error };
     }
 };
 
@@ -35,11 +33,10 @@ export const getUserProfileInfo = async (
     try {
         // const response = await axios.get(URLs.USER_COMMON_INFO_WITHOUT_ID + userId);
         const response = await axios.get(URLs.USER_COMMON_INFO_WITHOUT_ID);
-        return { error: false, data: response.data };
+        return { data: response.data };
     } catch (error) {
         return {
-            error: true,
-            errorMessage: error.message,
+            error: error.message,
         };
     }
 };

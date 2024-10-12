@@ -14,11 +14,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const WithoutTitle: Story = {
-    args: {},
+    args: {
+        start: 0,
+        count: 5,
+    },
 };
 
 export const WithTitle: Story = {
     args: {
         title: "Some title",
+        start: 0,
+        count: 5,
     },
 };

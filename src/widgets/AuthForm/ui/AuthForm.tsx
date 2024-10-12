@@ -3,17 +3,16 @@ import { auth } from "entity/User/lib/requests";
 import { setUserByJwt } from "entity/User/slice/UserSlice";
 import { ModalWindow } from "features/ModalWindow/ui/ModalWindow";
 import { StatusInput } from "features/StatusInput/ui/StatusInput";
-import { memo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LocalStorageKeys } from "shared/consts/localStorage";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import { Button, ButtonPreset } from "shared/ui/Button/Button";
 import { SmallLoader } from "shared/ui/SmallLoader/SmallLoader";
 import { TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
 import { TextToggleSwitcher } from "shared/ui/TextToggleSwitcher/TextToggleSwitcher";
-import * as cls from "./AuthForm.module.scss";
 import { validateData } from "../lib/validateData";
+import * as cls from "./AuthForm.module.scss";
 
 interface AuthFormProps {
     className?: string;
@@ -42,7 +41,6 @@ export const AuthForm = (props: AuthFormProps) => {
     const [isBlockSumbit, setIsBlockSumbit] = useState(false);
 
     const tryAuth = async (isRegister: boolean) => {
-        console.log(refs);
         const name = refs.name.current.value;
         const password = refs.password.current.value;
         setIsBlockSumbit(true);
@@ -67,10 +65,11 @@ export const AuthForm = (props: AuthFormProps) => {
         let result = await auth(name, password, isRegister);
         if (result.error) {
             setIsBlockSumbit(false);
-            setError(result.errorMessage);
+            console.log(result);
+            setError(result.error);
             return;
         }
-        dispatch(setUserByJwt(result.data.jwt));
+        dispatch(setUserByJwt(result.data.access));
         navigate("/products");
     };
 

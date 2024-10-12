@@ -1,5 +1,4 @@
 export type ResponseType<T> = {
-    error: boolean;
-    errorMessage?: string;
+    error?: string;
     data?: T;
 } 

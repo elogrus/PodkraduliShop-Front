@@ -16,7 +16,7 @@ export const UserRoleList = (props: UserRoleListProps) => {
             {...otherProps}
         >
             {roles.map((role) => (
-                <div className={cls.roleContainer}>
+                <div key={role} className={cls.roleContainer}>
                     <Text preset={TextPreset.REGULAR}>{role}</Text>
                 </div>
             ))}

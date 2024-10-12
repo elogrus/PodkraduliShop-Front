@@ -1,1 +1,0 @@
-export { DetailProductPageAsync as DetailProductPage } from "./ui/DetailProductPage.async";
