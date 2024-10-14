@@ -5,6 +5,8 @@ import { PageProps } from "shared/config/Pages";
 import { Paths } from "shared/config/Paths";
 import { usePageTitle } from "shared/hooks/usePageTitle";
 import * as cls from "./SettingsPage.module.scss";
+import { UserChangeNamePanel } from "widgets/UserChangeNamePanel/UserChangeNamePanel";
+import { UserChangePasswordPanel } from "widgets/UserChangePasswordPanel/ui/UserChangePasswordPanel";
 
 const SettingsPage = ({ title }: PageProps) => {
     usePageTitle(title);
@@ -13,7 +15,12 @@ const SettingsPage = ({ title }: PageProps) => {
     useEffect(() => {
         if (!isAuth) navigate(Paths.PRODUCTS_PATH);
     }, []);
-    return <div className={cls.SettingsPage}>hello</div>;
+    return (
+        <div className={cls.SettingsPage}>
+            <UserChangeNamePanel />
+            <UserChangePasswordPanel />
+        </div>
+    );
 };
 
 export default SettingsPage;

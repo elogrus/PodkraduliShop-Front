@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { JwtPayload, User } from "../types/User";
+import { createSlice } from "@reduxjs/toolkit";
 import { jwtDecode } from "jwt-decode";
 import { LocalStorageKeys } from "shared/consts/localStorage";
+import { JwtPayload, User, UserRole } from "../types/User";
 
 interface UserState extends User {
     isAuth: boolean;
@@ -12,17 +12,15 @@ const initialState = {
     isAuth: false,
     id: "",
     name: "",
-    role: [],
+    role: UserRole.USER,
 } satisfies UserState as UserState;
 
-const generateStateFromJwt = (jwt: JwtPayload) => {
-    return {
-        isAuth: true,
-        id: jwt.id,
-        name: jwt.name,
-        role: jwt.role,
-    };
-};
+const generateStateFromJwt = (jwt: JwtPayload): UserState => ({
+    isAuth: true,
+    id: jwt.id,
+    name: jwt.name,
+    role: jwt.role,
+});
 
 const UserSlice = createSlice({
     name: "User",

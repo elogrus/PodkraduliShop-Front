@@ -6,7 +6,10 @@ export enum URLs {
     REGISTER_URL = "http://localhost:3000/auth/register",
     LOGOUT_URL = "http://localhost:3000/auth/logout",
 
-    USER_AVATAR_WITHOUT_ID = "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg",
-    USER_AVATAR_MINI_WITHOUT_ID = "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small_2x/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg",
-    USER_COMMON_INFO_WITHOUT_ID = "http://localhost:3000/userinfo",
+    CHANGENAME_URL = "http://localhost:3000/user/changeName/",
+    CHANGEPASSWORD_URL = "http://localhost:3000/user/changePassword/",
+
+    USER_AVATAR_WITHOUT_ID = "http://localhost:3000/user/avatar/",
+    USER_AVATAR_MINI_WITHOUT_ID = "http://localhost:3000/user/avatar/",
+    USER_COMMON_INFO_WITHOUT_ID = "http://localhost:3000/user/getUser/",
 }

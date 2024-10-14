@@ -62,7 +62,7 @@ export const AuthForm = (props: AuthFormProps) => {
             return;
         }
 
-        let result = await auth(name, password, isRegister);
+        const result = await auth(name, password, isRegister);
         if (result.error) {
             setIsBlockSumbit(false);
             console.log(result);

@@ -31,12 +31,63 @@ export const getUserProfileInfo = async (
     userId: string
 ): Promise<ResponseType<User>> => {
     try {
-        // const response = await axios.get(URLs.USER_COMMON_INFO_WITHOUT_ID + userId);
-        const response = await axios.get(URLs.USER_COMMON_INFO_WITHOUT_ID);
-        return { data: response.data };
+        const response = await axios.get(
+            URLs.USER_COMMON_INFO_WITHOUT_ID + userId
+        );
+        return response.data;
     } catch (error) {
         return {
             error: error.message,
+        };
+    }
+};
+
+export const changeName = async (
+    name: string,
+    token: string
+): Promise<ResponseType<AuthResponse>> => {
+    try {
+        const response = await axios.post(
+            URLs.CHANGENAME_URL,
+            {
+                newName: name,
+            },
+            {
+                headers: {
+                    Authorization: token,
+                },
+            }
+        );
+        return response.data;
+    } catch (error) {
+        return {
+            error: error.response.data.error,
+        };
+    }
+};
+
+export const changePassword = async (
+    oldPassword: string,
+    newPassword: string,
+    token: string
+): Promise<ResponseType<AuthResponse>> => {
+    try {
+        const response = await axios.post(
+            URLs.CHANGEPASSWORD_URL,
+            {
+                oldPassword: oldPassword,
+                newPassword: newPassword,
+            },
+            {
+                headers: {
+                    Authorization: token,
+                },
+            }
+        );
+        return response.data;
+    } catch (error) {
+        return {
+            error: error.response.data.error,
         };
     }
 };

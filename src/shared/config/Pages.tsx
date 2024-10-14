@@ -27,11 +27,11 @@ export const Pages: PageNotation[] = [
         path: Paths.PROFILE_PATH,
         element: <ProfilePage title={"Профиль"} />,
     },
-    {
-        name: "Профиль",
-        path: Paths.PROFILE_PATH_WITHOUT_ID,
-        element: <ProfilePage title={"Профиль"} />,
-    },
+    // {
+    //     name: "Профиль",
+    //     path: Paths.PROFILE_PATH_WITHOUT_ID,
+    //     element: <ProfilePage title={"Профиль"} />,
+    // },
     {
         name: "Настройки профиля",
         path: Paths.SETTINGS_PATH,

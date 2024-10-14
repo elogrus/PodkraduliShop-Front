@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from "app/store/store";
+import axios from "axios";
 import { removeUser } from "entity/User/slice/UserSlice";
 import {
     PopupButton,
@@ -14,7 +15,6 @@ import { Link } from "shared/ui/Link/Link";
 import { TextColor, TextMods, TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
 import * as cls from "./UserNavbarPanel.module.scss";
-import axios from "axios";
 
 interface UserNavbarPanelProps {
     className?: string;
@@ -27,6 +27,10 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
     const navigate = useNavigate();
     const popupButtonRef = useRef<PopupButtonRef>(null);
 
+    const onClick = () => {
+        popupButtonRef.current.close();
+    };
+
     const onLogoutButtonClick = async () => {
         try {
             await axios.post(URLs.LOGOUT_URL);
@@ -34,7 +38,7 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
             navigate("/products");
         } catch (error) {
             // show some error, need to create notification modal component
-            alert('случилась какая-то ошибка')
+            alert("случилась какая-то ошибка");
             popupButtonRef.current.close();
         }
     };
@@ -59,8 +63,7 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
                             </Text>
                             <img
                                 className={cls.miniAvatar}
-                                // src={URLs.USER_AVATAR_MINI_WITHOUT_ID + user.id}
-                                src={URLs.USER_AVATAR_MINI_WITHOUT_ID}
+                                src={URLs.USER_AVATAR_MINI_WITHOUT_ID + user.id}
                             ></img>
                         </div>
                     }
@@ -68,8 +71,15 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
                     openToVert="bottom"
                 >
                     <div className={cls.content}>
-                        <Link to={Paths.PROFILE_PATH_WITHOUT_ID}>Профиль</Link>
-                        <Link to={Paths.SETTINGS_PATH}>Настройки</Link>
+                        <Link
+                            onClick={onClick}
+                            to={Paths.PROFILE_PATH_WITHOUT_ID + user.id}
+                        >
+                            Профиль
+                        </Link>
+                        <Link onClick={onClick} to={Paths.SETTINGS_PATH}>
+                            Настройки
+                        </Link>
                         <hr />
                         <Button
                             onClick={onLogoutButtonClick}

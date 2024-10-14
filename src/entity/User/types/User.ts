@@ -1,16 +1,12 @@
 export type User = {
     id: string;
     name: string;
-    role: UserRoles[];
+    role: UserRole;
 };
 
-export enum UserRoles {
+export enum UserRole {
     USER = "user",
     ADMIN = "admin",
 }
 
-export interface JwtPayload extends User {
-    id: string;
-    name: string;
-    role: UserRoles[];
-}
+export interface JwtPayload extends User {}

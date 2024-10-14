@@ -5,7 +5,6 @@ import { Link } from "shared/ui/Link/Link";
 import { TextColor } from "shared/ui/Text/types/Text";
 import { Logo } from "../../../../shared/ui/Logo/Logo";
 import * as cls from "./Navbar.module.scss";
-import { useState } from "react";
 
 interface NavbarProps {
     className?: string;
