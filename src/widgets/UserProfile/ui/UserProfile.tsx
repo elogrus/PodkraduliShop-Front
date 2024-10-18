@@ -1,14 +1,14 @@
-import { getUserProfileInfo } from "entity/User/lib/requests";
+import { getUserProfileInfo } from "entity/User/lib/actions";
 import { User } from "entity/User/types/User";
+import { LazyImg } from "features/LazyImg/LazyImg";
 import { useEffect, useState } from "react";
 import { StringsConsts } from "shared/consts/string";
+import { URLs } from "shared/consts/urls";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import { Loader } from "shared/ui/Loader/Loader";
 import { TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
 import * as cls from "./UserProfile.module.scss";
-import { URLs } from "shared/consts/urls";
-import { LazyImg } from "features/LazyImg/LazyImg";
 
 interface UserProfileProps {
     userId: string;
@@ -20,11 +20,19 @@ export const UserProfile = (props: UserProfileProps) => {
     const [user, setUser] = useState<User>();
     const [error, setError] = useState("");
     useEffect(() => {
-        getUserProfileInfo(userId).then((res) => {
-            if (res.error) return setError(res.error);
-            setUser(res.data);
-            document.title = res.data.name + StringsConsts.PAGE_TITLE_PART;
-        });
+        (async () => {
+            getUserProfileInfo(
+                userId,
+                (result) => {
+                    setError(result.error);
+                },
+                (result) => {
+                    setUser(result.data);
+                    document.title =
+                        result.data.name + StringsConsts.PAGE_TITLE_PART;
+                }
+            );
+        })();
     }, [userId]);
     return (
         <div className={cmcl(cls.UserProfile, {}, [className])} {...otherProps}>

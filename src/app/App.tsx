@@ -1,6 +1,8 @@
+import axios from "axios";
+import { updateToken } from "entity/User/lib/actions";
 import { setUserByJwt } from "entity/User/slice/UserSlice";
 import { LoadingPage } from "pages/LoadingPage";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Pages } from "shared/config/Pages";
 import { LocalStorageKeys } from "shared/consts/localStorage";
@@ -11,9 +13,18 @@ import { useAppDispatch } from "./store/store";
 
 export const App = () => {
     const dispatch = useAppDispatch();
+    const noAuthResponseRetry = useRef(false);
     useEffect(() => {
         if (localStorage[LocalStorageKeys.AUTH_TOKEN])
             dispatch(setUserByJwt(localStorage[LocalStorageKeys.AUTH_TOKEN]));
+        axios.defaults.withCredentials = true;
+        axios.interceptors.response.use(undefined, (error) => {
+            if (error.status == 401 && !noAuthResponseRetry.current) {
+                noAuthResponseRetry.current = true;
+                updateToken();
+            }
+            return Promise.reject(error);
+        });
     }, []);
     return (
         <div className={cls.App}>

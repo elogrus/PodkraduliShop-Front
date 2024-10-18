@@ -1,14 +1,12 @@
 import { useAppDispatch } from "app/store/store";
-import { changePassword } from "entity/User/lib/requests";
-import { setUserByJwt } from "entity/User/slice/UserSlice";
+import { changePassword } from "entity/User/lib/actions";
+import { validatePassword } from "entity/User/lib/validate";
 import { StatusInput } from "features/StatusInput/ui/StatusInput";
 import { useRef, useState } from "react";
-import { LocalStorageKeys } from "shared/consts/localStorage";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import { Button } from "shared/ui/Button/Button";
 import { TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
-import { validatePassword } from "../lib/validateData";
 import * as cls from "./UserChangePasswordPanel.module.scss";
 
 interface UserChangePasswordPanelProps {
@@ -38,35 +36,45 @@ export const UserChangePasswordPanel = (
         const password = refs.password.current.value;
         const confirmPassword = refs.confirmPassword.current.value;
 
-        const validateResult = validatePassword(
-            oldPassword,
-            password,
-            confirmPassword
-        );
-        if (!validateResult.oldPassword)
-            setStatus((prev) => ({ ...prev, oldPassword: false }));
-        if (!validateResult.password)
-            setStatus((prev) => ({ ...prev, password: false }));
-        if (!validateResult.confirmPassword)
-            setStatus((prev) => ({ ...prev, confirmPassword: false }));
-        if (validateResult.failed) {
+        const validationResult = {
+            oldPass: validatePassword(oldPassword),
+            pass: validatePassword(password),
+            confirmPass: validatePassword(confirmPassword),
+        };
+
+        if (
+            !validationResult.oldPass ||
+            !validationResult.pass ||
+            !validationResult.confirmPass ||
+            password !== confirmPassword
+        ) {
+            setStatus((prev) => ({
+                ...prev,
+                oldPassword: validationResult.oldPass === true ? null : false,
+                password: validationResult.pass === true ? null : false,
+                confirmPassword:
+                    validationResult.confirmPass === true &&
+                    password === confirmPassword
+                        ? null
+                        : false,
+            }));
             setIsBlockSumbit(false);
             return;
         }
 
-        const result = await changePassword(
+        changePassword(
             oldPassword,
             password,
-            localStorage.getItem(LocalStorageKeys.AUTH_TOKEN)
+            (result) => {
+                setIsBlockSumbit(false);
+                setError(result.error);
+            },
+            () => {
+                setError("");
+                alert("good");
+            },
+            dispatch
         );
-        if (result.error) {
-            setIsBlockSumbit(false);
-            setError(result.error);
-            return;
-        }
-        dispatch(setUserByJwt(result.data.access));
-        setError("");
-        alert("good");
     };
 
     const onFocusOldPassword: React.ChangeEventHandler<HTMLInputElement> = (

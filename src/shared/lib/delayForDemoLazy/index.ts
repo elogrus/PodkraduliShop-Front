@@ -1,5 +1,5 @@
 export function delayForDemoLazy(promise: any) {
     return new Promise(resolve => {
-        setTimeout(resolve, 2000);
+        setTimeout(resolve, 800);
     }).then(() => promise);
 }

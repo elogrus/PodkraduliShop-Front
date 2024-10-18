@@ -1,6 +1,6 @@
-import { FC, MouseEvent, ReactNode, useRef } from 'react';
-import * as cls from './Zoom.module.scss';
-import { compareClasses as cmcl } from 'shared/lib/classNames';
+import { MouseEvent, ReactNode, useRef } from "react";
+import { compareClasses as cmcl } from "shared/lib/classNames";
+import * as cls from "./Zoom.module.scss";
 
 interface ZoomProps {
     className?: string;
@@ -10,17 +10,18 @@ interface ZoomProps {
 
 export const Zoom = (props: ZoomProps) => {
     const { className, children, zoomMultiply = 2, ...otherProps } = props;
-    const containerRef = useRef<HTMLDivElement>()
-    const wrapperRef = useRef<HTMLDivElement>()
-    const enterPos = useRef<{ x: number, y: number }>({ x: 0, y: 0 })
+    const containerRef = useRef<HTMLDivElement>();
+    const wrapperRef = useRef<HTMLDivElement>();
+    const enterPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
     const onMouseEnter = (e: MouseEvent) => {
-        containerRef.current.style.transform = `scale(${zoomMultiply})`
+        containerRef.current.style.transform = `scale(${zoomMultiply})`;
         const bounds = wrapperRef.current.getBoundingClientRect();
-        enterPos.current = { x: e.clientX - bounds.left, y: e.clientY - bounds.top }
-        console.log('current', enterPos.current.x, enterPos.current.y)
-        console.log('bounds', bounds.width, bounds.height)
-    }
+        enterPos.current = {
+            x: e.clientX - bounds.left,
+            y: e.clientY - bounds.top,
+        };
+    };
 
     const onMouseMove = (e: MouseEvent) => {
         const bounds = wrapperRef.current.getBoundingClientRect();
@@ -34,15 +35,22 @@ export const Zoom = (props: ZoomProps) => {
         const posX = -(nowPosX - enterPosX / zoomMultiply);
         const posY = -(nowPosY - enterPosY / zoomMultiply);
 
-        containerRef.current.style.transform = `scale(${zoomMultiply}) translate(${posX}px, ${posY}px)`
-    }
+        containerRef.current.style.transform = `scale(${zoomMultiply}) translate(${posX}px, ${posY}px)`;
+    };
 
     const onMouseLeave = (e: MouseEvent) => {
-        containerRef.current.style.transform = `scale(1)`
-    }
+        containerRef.current.style.transform = `scale(1)`;
+    };
 
     return (
-        <div ref={wrapperRef} onMouseMove={onMouseMove} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} className={cmcl(cls.Zoom, {}, [className])} {...otherProps}>
+        <div
+            ref={wrapperRef}
+            onMouseMove={onMouseMove}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            className={cmcl(cls.Zoom, {}, [className])}
+            {...otherProps}
+        >
             <div ref={containerRef} className={cls.Container}>
                 {children}
             </div>

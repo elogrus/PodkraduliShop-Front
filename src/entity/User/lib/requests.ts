@@ -1,13 +1,14 @@
 import axios from "axios";
-import { ResponseType } from "shared/types/Response";
+import { LocalStorageKeys } from "shared/consts/localStorage";
 import { URLs } from "shared/consts/urls";
+import { ResponseType } from "shared/types/Response";
 import { User } from "../types/User";
 
 type AuthResponse = {
     access: string;
 };
 
-export const auth = async (
+export const authReq = async (
     username: string,
     password: string,
     isRegister: boolean
@@ -20,14 +21,13 @@ export const auth = async (
                 password: password,
             }
         );
-        return { data: response.data.data };
+        return response.data;
     } catch (error) {
-        console.log(error.response);
         return { error: error.response.data.error };
     }
 };
 
-export const getUserProfileInfo = async (
+export const getUserProfileInfoReq = async (
     userId: string
 ): Promise<ResponseType<User>> => {
     try {
@@ -37,15 +37,15 @@ export const getUserProfileInfo = async (
         return response.data;
     } catch (error) {
         return {
-            error: error.message,
+            error: error.response.data.error,
         };
     }
 };
 
-export const changeName = async (
-    name: string,
-    token: string
+export const changeNameReq = async (
+    name: string
 ): Promise<ResponseType<AuthResponse>> => {
+    const token = localStorage.getItem(LocalStorageKeys.AUTH_TOKEN);
     try {
         const response = await axios.post(
             URLs.CHANGENAME_URL,
@@ -66,11 +66,11 @@ export const changeName = async (
     }
 };
 
-export const changePassword = async (
+export const changePasswordReq = async (
     oldPassword: string,
-    newPassword: string,
-    token: string
+    newPassword: string
 ): Promise<ResponseType<AuthResponse>> => {
+    const token = localStorage.getItem(LocalStorageKeys.AUTH_TOKEN);
     try {
         const response = await axios.post(
             URLs.CHANGEPASSWORD_URL,
@@ -83,6 +83,21 @@ export const changePassword = async (
                     Authorization: token,
                 },
             }
+        );
+        return response;
+    } catch (error) {
+        return {
+            // error: error.response.data.error,
+            error: error
+        };
+    }
+};
+
+export const updateTokenReq = async (): Promise<ResponseType<AuthResponse>> => {
+    try {
+        const response = await axios.post(
+            URLs.UPDATE_TOKEN_URL,
+            { withCredentials: true }
         );
         return response.data;
     } catch (error) {

@@ -1,15 +1,12 @@
 import {
     forwardRef,
     ReactNode,
-    useEffect,
     useImperativeHandle,
     useRef,
     useState,
 } from "react";
-import * as cls from "./PopupButton.module.scss";
 import { compareClasses as cmcl } from "shared/lib/classNames";
-import { Text } from "shared/ui/Text/ui/Text";
-import { ModalWindow } from "features/ModalWindow/ui/ModalWindow";
+import * as cls from "./PopupButton.module.scss";
 
 interface PopupButtonProps {
     children: ReactNode;
@@ -89,8 +86,6 @@ export const PopupButton = forwardRef<PopupButtonRef, PopupButtonProps>(
 
                 <div
                     style={{
-                        opacity: isOpen ? 1 : 0,
-                        zIndex: isOpen ? 100 : -100,
                         left: openToHor === "left" ? "auto" : "0",
                         right: openToHor === "right" ? "auto" : "0",
                         top: openToVert === "top" ? "auto" : "calc(100% + 5px)",
@@ -99,7 +94,11 @@ export const PopupButton = forwardRef<PopupButtonRef, PopupButtonProps>(
                                 ? "auto"
                                 : "calc(100% + 5px)",
                     }}
-                    className={cmcl(cls.content, {}, [contentWrapperClassName])}
+                    className={cmcl(
+                        cls.content,
+                        { [cls.closed]: !isOpen, [cls.opened]: isOpen },
+                        [contentWrapperClassName]
+                    )}
                     onClick={onContentClick}
                 >
                     {children}

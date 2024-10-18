@@ -5,6 +5,7 @@ export enum URLs {
     LOGIN_URL = "http://localhost:3000/auth/login",
     REGISTER_URL = "http://localhost:3000/auth/register",
     LOGOUT_URL = "http://localhost:3000/auth/logout",
+    UPDATE_TOKEN_URL = "http://localhost:3000/auth/updateToken",
 
     CHANGENAME_URL = "http://localhost:3000/user/changeName/",
     CHANGEPASSWORD_URL = "http://localhost:3000/user/changePassword/",

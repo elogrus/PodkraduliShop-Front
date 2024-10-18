@@ -1,6 +1,6 @@
 import { useAppDispatch } from "app/store/store";
-import { auth } from "entity/User/lib/requests";
-import { setUserByJwt } from "entity/User/slice/UserSlice";
+import { auth } from "entity/User/lib/actions";
+import { validateAll, validatePassword } from "entity/User/lib/validate";
 import { ModalWindow } from "features/ModalWindow/ui/ModalWindow";
 import { StatusInput } from "features/StatusInput/ui/StatusInput";
 import { useRef, useState } from "react";
@@ -11,7 +11,6 @@ import { SmallLoader } from "shared/ui/SmallLoader/SmallLoader";
 import { TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
 import { TextToggleSwitcher } from "shared/ui/TextToggleSwitcher/TextToggleSwitcher";
-import { validateData } from "../lib/validateData";
 import * as cls from "./AuthForm.module.scss";
 
 interface AuthFormProps {
@@ -45,32 +44,43 @@ export const AuthForm = (props: AuthFormProps) => {
         const password = refs.password.current.value;
         setIsBlockSumbit(true);
 
-        const validateResult = validateData(
+        let validationFailed = false;
+        const validationResult = validateAll(name, password);
+        if (validationResult.fail) {
+            setStatus((prev) => ({
+                ...prev,
+                name: validationResult.name === true ? null : false,
+                password: validationResult.password === true ? null : false,
+            }));
+            setIsBlockSumbit(false);
+            validationFailed = true;
+        }
+
+        if (
+            isRegister &&
+            (!validatePassword(refs.confirmPassword.current.value) ||
+                !refs.confirmPassword.current.value == password)
+        ) {
+            setStatus((prev) => ({ ...prev, confirmPassword: false }));
+            setIsBlockSumbit(false);
+            validationFailed = true;
+        }
+        if (validationFailed) return;
+
+        auth(
             name,
             password,
-            isRegister ? refs.confirmPassword.current.value : null
+            isRegister,
+            (result) => {
+                setIsBlockSumbit(false);
+                setError(result.error);
+                return;
+            },
+            () => {
+                navigate("/products");
+            },
+            dispatch
         );
-
-        if (!validateResult.name)
-            setStatus((prev) => ({ ...prev, name: false }));
-        if (!validateResult.password)
-            setStatus((prev) => ({ ...prev, password: false }));
-        if (!validateResult.confirmPassword)
-            setStatus((prev) => ({ ...prev, confirmPassword: false }));
-        if (validateResult.failed) {
-            setIsBlockSumbit(false);
-            return;
-        }
-
-        const result = await auth(name, password, isRegister);
-        if (result.error) {
-            setIsBlockSumbit(false);
-            console.log(result);
-            setError(result.error);
-            return;
-        }
-        dispatch(setUserByJwt(result.data.access));
-        navigate("/products");
     };
 
     const onFocusName: React.ChangeEventHandler<HTMLInputElement> = (e) => {

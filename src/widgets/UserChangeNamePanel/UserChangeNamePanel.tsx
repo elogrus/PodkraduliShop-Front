@@ -1,14 +1,12 @@
-import { setUserByJwt } from "entity/User/slice/UserSlice";
-import * as cls from "./UserChangeNamePanel.module.scss";
-import { compareClasses as cmcl } from "shared/lib/classNames";
-import { changeName } from "entity/User/lib/requests";
-import { LocalStorageKeys } from "shared/consts/localStorage";
-import { useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "app/store/store";
-import { Text } from "shared/ui/Text/ui/Text";
-import { TextPreset } from "shared/ui/Text/types/Text";
+import { changeName } from "entity/User/lib/actions";
 import { StatusInput } from "features/StatusInput/ui/StatusInput";
+import { useRef, useState } from "react";
+import { compareClasses as cmcl } from "shared/lib/classNames";
 import { Button } from "shared/ui/Button/Button";
+import { TextPreset } from "shared/ui/Text/types/Text";
+import { Text } from "shared/ui/Text/ui/Text";
+import * as cls from "./UserChangeNamePanel.module.scss";
 
 interface UserChangeNamePanelProps {
     className?: string;
@@ -30,19 +28,18 @@ export const UserChangeNamePanel = (props: UserChangeNamePanelProps) => {
             return;
         }
 
-        const result = await changeName(
+        changeName(
             name,
-            localStorage.getItem(LocalStorageKeys.AUTH_TOKEN)
+            (result) => {
+                setIsBlockSumbit(false);
+                setError(result.error);
+            },
+            () => {
+                setError("");
+                alert("good");
+            },
+            dispatch
         );
-        if (result.error) {
-            setIsBlockSumbit(false);
-            console.log(result);
-            setError(result.error);
-            return;
-        }
-        dispatch(setUserByJwt(result.data.access));
-        setError("");
-        alert("good");
     };
     const onFocus: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         if (status != null) setStatus(null);
