@@ -1,11 +1,11 @@
+import { AuthPage } from "pages/AuthPage";
 import { DetailProductPage } from "pages/DetailProductPage";
 import { ProductsPage } from "pages/ProductsPage/";
+import { ProfilePage } from "pages/ProfilePage";
+import { SettingsPage } from "pages/SettingsPage";
 import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import { Paths } from "./Paths";
-import { AuthPage } from "pages/AuthPage";
-import { ProfilePage } from "pages/ProfilePage";
-import { SettingsPage } from "pages/SettingsPage";
 
 interface PageNotation {
     name: string;
@@ -27,11 +27,6 @@ export const Pages: PageNotation[] = [
         path: Paths.PROFILE_PATH,
         element: <ProfilePage title={"Профиль"} />,
     },
-    // {
-    //     name: "Профиль",
-    //     path: Paths.PROFILE_PATH_WITHOUT_ID,
-    //     element: <ProfilePage title={"Профиль"} />,
-    // },
     {
         name: "Настройки профиля",
         path: Paths.SETTINGS_PATH,

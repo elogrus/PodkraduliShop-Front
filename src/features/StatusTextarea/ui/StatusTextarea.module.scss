@@ -1,0 +1,12 @@
+.StatusTextarea {
+    do: do;
+}
+
+// using "textarea" tag to increase priority of selector
+textarea.GoodTextarea {
+    border-color: var(--cl8);
+}
+
+textarea.BadTextarea {
+    border-color: var(--cl9);
+}

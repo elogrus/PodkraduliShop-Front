@@ -1,5 +1,5 @@
-import { App } from './App';
-import { Providers } from './providers';
+import { App } from "./App";
+import { Providers } from "./providers";
 
 export const AppWrapper = () => {
     return (

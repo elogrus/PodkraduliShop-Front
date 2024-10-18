@@ -1,0 +1,18 @@
+.Select {
+    width: fit-content;
+    padding: 6px 10px;
+    font-size: 1rem;
+    outline: none;
+    font: var(--font2-r);
+}
+
+
+.preset_regular {
+    border: 1px solid var(--cl3);
+    border-radius: 5px;
+    transition: border-color calc(var(--transition, 0.2) * 1s) ease;
+}
+
+.preset_clear {
+    do: do;
+}

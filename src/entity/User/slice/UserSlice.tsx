@@ -13,6 +13,7 @@ const initialState = {
     id: "",
     name: "",
     role: UserRole.USER,
+    about: "",
 } satisfies UserState as UserState;
 
 const generateStateFromJwt = (jwt: JwtPayload): UserState => ({
@@ -20,6 +21,7 @@ const generateStateFromJwt = (jwt: JwtPayload): UserState => ({
     id: jwt.id,
     name: jwt.name,
     role: jwt.role,
+    about: jwt.about,
 });
 
 const UserSlice = createSlice({
@@ -27,7 +29,6 @@ const UserSlice = createSlice({
     initialState,
     reducers: {
         setUserByJwt(state, action: PayloadAction<string>) {
-            localStorage.setItem(LocalStorageKeys.AUTH_TOKEN, action.payload);
             const jwt = jwtDecode<JwtPayload>(action.payload);
             return generateStateFromJwt(jwt);
         },

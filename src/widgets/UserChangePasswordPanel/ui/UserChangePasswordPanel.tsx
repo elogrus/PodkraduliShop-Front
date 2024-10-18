@@ -3,6 +3,7 @@ import { changePassword } from "entity/User/lib/actions";
 import { validatePassword } from "entity/User/lib/validate";
 import { StatusInput } from "features/StatusInput/ui/StatusInput";
 import { useRef, useState } from "react";
+import { toast } from "react-toastify";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import { Button } from "shared/ui/Button/Button";
 import { TextPreset } from "shared/ui/Text/types/Text";
@@ -71,7 +72,7 @@ export const UserChangePasswordPanel = (
             },
             () => {
                 setError("");
-                alert("good");
+                toast.success("Готово!");
             },
             dispatch
         );
@@ -110,6 +111,7 @@ export const UserChangePasswordPanel = (
                     status={status.oldPassword}
                     ref={refs.oldPassword}
                     onFocus={onFocusOldPassword}
+                    type="password"
                 />
             </div>
             <div className={cls.block}>
@@ -120,11 +122,13 @@ export const UserChangePasswordPanel = (
                     onFocus={onFocusPassword}
                     status={status.password}
                     ref={refs.password}
+                    type="password"
                 />
                 <StatusInput
                     status={status.confirmPassword}
                     ref={refs.confirmPassword}
                     onFocus={onFocusConfirmPassword}
+                    type="password"
                 />
                 <Button
                     onClick={onChangePassword}

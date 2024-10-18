@@ -7,6 +7,7 @@ import { Button } from "shared/ui/Button/Button";
 import { TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
 import * as cls from "./UserChangeNamePanel.module.scss";
+import { toast } from "react-toastify";
 
 interface UserChangeNamePanelProps {
     className?: string;
@@ -36,7 +37,7 @@ export const UserChangeNamePanel = (props: UserChangeNamePanelProps) => {
             },
             () => {
                 setError("");
-                alert("good");
+                toast.success("Готово!");
             },
             dispatch
         );

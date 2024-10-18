@@ -10,7 +10,8 @@
 .content {
     background-color: #fff;
     position: absolute;
-    // transition: opacity 0.08s ease;
+    // transition: opacity 800ms ease;
+    opacity: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,33 +19,4 @@
     padding: 15px;
     border-radius: 16px;
     box-shadow: 0 5px 8px 0 rgba(#000, 0.25);
-}
-
-@keyframes fadeIn {
-    0% {
-        display: flex;
-        opacity: 0;
-    }
-    99% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    99% {
-        opacity: 0;
-    }
-    100% {
-        display: none;
-    }
-}
-.opened {
-    animation: fadeIn 100ms both;
-}
-
-.closed {
-    animation: fadeOut 100ms both;
 }

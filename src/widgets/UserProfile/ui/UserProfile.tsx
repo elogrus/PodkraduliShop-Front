@@ -1,6 +1,6 @@
 import { getUserProfileInfo } from "entity/User/lib/actions";
 import { User } from "entity/User/types/User";
-import { LazyImg } from "features/LazyImg/LazyImg";
+import { UserRole } from "entity/User/ui/UserRole/UserRole";
 import { useEffect, useState } from "react";
 import { StringsConsts } from "shared/consts/string";
 import { URLs } from "shared/consts/urls";
@@ -41,17 +41,15 @@ export const UserProfile = (props: UserProfileProps) => {
             ) : user ? (
                 <div className={cls.container}>
                     <div className={cls.left}>
-                        <LazyImg
+                        <img
                             className={cls.avatar}
-                            url={URLs.USER_AVATAR_WITHOUT_ID + userId}
+                            src={URLs.USER_AVATAR_WITHOUT_ID + userId}
                         />
                     </div>
                     <div className={cls.right}>
                         <Text preset={TextPreset.TITLE}>{user.name}</Text>
-
-                        <Text preset={TextPreset.REGULAR}>
-                            Тут будет еще какая-то информация, пока хз какая
-                        </Text>
+                        <UserRole role={user.role} />
+                        <Text preset={TextPreset.REGULAR}>{user.about}</Text>
                     </div>
                 </div>
             ) : (

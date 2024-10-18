@@ -1,11 +1,11 @@
-import { Text } from "shared/ui/Text/ui/Text";
-import * as cls from "./UserRoleList.module.scss";
 import { compareClasses as cmcl } from "shared/lib/classNames";
-import { TextPreset } from "shared/ui/Text/types/Text";
+import { UserRole } from "../UserRole/UserRole";
+import * as cls from "./UserRoleList.module.scss";
+import { UserRole as UserRoleEnum } from "entity/User/types/User";
 
 interface UserRoleListProps {
     className?: string;
-    roles: string[];
+    roles: UserRoleEnum[];
 }
 
 export const UserRoleList = (props: UserRoleListProps) => {
@@ -16,9 +16,7 @@ export const UserRoleList = (props: UserRoleListProps) => {
             {...otherProps}
         >
             {roles.map((role) => (
-                <div key={role} className={cls.roleContainer}>
-                    <Text preset={TextPreset.REGULAR}>{role}</Text>
-                </div>
+                <UserRole key={role} role={role} />
             ))}
         </div>
     );

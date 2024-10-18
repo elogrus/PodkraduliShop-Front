@@ -66,6 +66,30 @@ export const changeNameReq = async (
     }
 };
 
+export const changeAboutReq = async (
+    about: string
+): Promise<ResponseType<AuthResponse>> => {
+    const token = localStorage.getItem(LocalStorageKeys.AUTH_TOKEN);
+    try {
+        const response = await axios.post(
+            URLs.CHANGEABOUT_URL,
+            {
+                newAbout: about,
+            },
+            {
+                headers: {
+                    Authorization: token,
+                },
+            }
+        );
+        return response.data;
+    } catch (error) {
+        return {
+            error: error.response.data.error,
+        };
+    }
+};
+
 export const changePasswordReq = async (
     oldPassword: string,
     newPassword: string
@@ -88,17 +112,16 @@ export const changePasswordReq = async (
     } catch (error) {
         return {
             // error: error.response.data.error,
-            error: error
+            error: error,
         };
     }
 };
 
 export const updateTokenReq = async (): Promise<ResponseType<AuthResponse>> => {
     try {
-        const response = await axios.post(
-            URLs.UPDATE_TOKEN_URL,
-            { withCredentials: true }
-        );
+        const response = await axios.post(URLs.UPDATE_TOKEN_URL, {
+            withCredentials: true,
+        });
         return response.data;
     } catch (error) {
         return {

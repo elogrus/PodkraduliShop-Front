@@ -4,6 +4,7 @@ import { LocalStorageKeys } from "shared/consts/localStorage";
 import { setUserByJwt } from "../slice/UserSlice";
 import {
     authReq,
+    changeAboutReq,
     changeNameReq,
     changePasswordReq,
     getUserProfileInfoReq,
@@ -52,6 +53,22 @@ export const changeName = async (
     dispatch: ReturnType<typeof useAppDispatch>
 ) => {
     const result = await changeNameReq(name);
+    if (result.error) {
+        onError(result);
+        return;
+    }
+    dispatch(setUserByJwt(result.data.access));
+    localStorage.setItem(LocalStorageKeys.AUTH_TOKEN, result.data.access);
+    onSuccess(result);
+};
+
+export const changeAbout = async (
+    name: string,
+    onError: (result: Awaited<ReturnType<typeof changeAboutReq>>) => void,
+    onSuccess: (result: Awaited<ReturnType<typeof changeAboutReq>>) => void,
+    dispatch: ReturnType<typeof useAppDispatch>
+) => {
+    const result = await changeAboutReq(name);
     if (result.error) {
         onError(result);
         return;

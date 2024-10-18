@@ -6,4 +6,5 @@ export enum Paths {
     PROFILE_PATH = "/profile/:userId",
     PROFILE_PATH_WITHOUT_ID = "/profile/",
     SETTINGS_PATH = "/settings",
+    ADMIN_PANEL_PATH = "/admin",
 }

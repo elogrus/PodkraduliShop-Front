@@ -18,5 +18,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: var(--page_fullheight);
+    min-height: var(--app_fullheight);
+    justify-content: space-between;
 }

@@ -1,0 +1,24 @@
+.Role {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.user {
+    background-color: var(--cl1);
+}
+
+.admin {
+    background-color: var(--cl9);
+}
+
+.userText {
+    color: var(--cl5)
+}
+
+.adminText {
+    color: var(--cl0);
+}

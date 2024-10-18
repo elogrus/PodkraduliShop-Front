@@ -15,6 +15,7 @@ import { Link } from "shared/ui/Link/Link";
 import { TextColor, TextMods, TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
 import * as cls from "./UserNavbarPanel.module.scss";
+import { toast } from "react-toastify";
 
 interface UserNavbarPanelProps {
     className?: string;
@@ -38,7 +39,7 @@ export const UserNavbarPanel = (props: UserNavbarPanelProps) => {
             navigate("/products");
         } catch (error) {
             // show some error, need to create notification modal component
-            alert("случилась какая-то ошибка");
+            toast.error("Случилась какая-то ошибка");
             popupButtonRef.current.close();
         }
     };
