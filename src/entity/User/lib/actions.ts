@@ -37,6 +37,7 @@ export const changePassword = async (
     dispatch: ReturnType<typeof useAppDispatch>
 ) => {
     const result = await changePasswordReq(oldPassword, newPassword);
+    console.log(result)
     if (result.error) {
         onError(result);
         return;

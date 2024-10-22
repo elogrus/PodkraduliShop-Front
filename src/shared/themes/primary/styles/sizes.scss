@@ -6,6 +6,7 @@ body {
     --footer_max_width: 1400px;
     --page_top_padding: 50px;
     --page_bottom_padding: 50px;
+    --page_horizontal_padding: 15px;
     --page_fullheight: calc(100vh - var(--navbar_height) - var(--footer_height));
     --app_fullheight: 100vh;
 }

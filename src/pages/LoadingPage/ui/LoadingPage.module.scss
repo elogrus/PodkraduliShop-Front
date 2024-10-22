@@ -1,6 +1,7 @@
 .LoadingPage {
     width: 100%;
-    height: var(--page_fullheight);
+    min-height: var(--page_fullheight);
+    padding: 0 var(--page_horizontal_padding);
     display: flex;
     justify-content: center;
     align-items: center;

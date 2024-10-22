@@ -1,4 +1,4 @@
-import { LogoIcon } from "shared/ui/Icons/LogoIcon/LogoIcon";
+import LogoIcon from "shared/assets/logo.svg";
 import * as cls from "./Logo.module.scss";
 import { Text } from "shared/ui/Text/ui/Text";
 import { compareClasses as cmcl } from "shared/lib/classNames";

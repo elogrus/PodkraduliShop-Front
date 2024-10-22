@@ -3,6 +3,9 @@
     width: 100%;
     max-width: var(--max_page_width);
     min-height: var(--page_fullheight);
+    padding: 0 var(--page_horizontal_padding);
+    padding-top: var(--page_top_padding);
+    padding-bottom: var(--page_bottom_padding);
     flex-direction: column;
     align-items: center;
 }

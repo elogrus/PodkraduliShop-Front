@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 var(--page_horizontal_padding);
     padding-top: var(--page_top_padding);
     padding-bottom: var(--page_bottom_padding);
     width: 100%;

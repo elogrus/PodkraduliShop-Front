@@ -15,13 +15,13 @@
     }
 
     & > *::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         bottom: calc(var(--gap) / -2);
         width: 100%;
         height: 1px;
-        background-color: var(--cl1);
+        background-color: var(--cl7);
     }
 
     & > *:last-child::after {
@@ -41,4 +41,3 @@
     text-wrap: pretty;
     height: fit-content;
 }
-

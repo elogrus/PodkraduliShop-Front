@@ -17,4 +17,10 @@ export enum URLs {
     USER_AVATAR_WITHOUT_ID = "http://localhost:3000/user/avatar/full/",
     USER_AVATAR_MINI_WITHOUT_ID = "http://localhost:3000/user/avatar/mini/",
     USER_COMMON_INFO_WITHOUT_ID = "http://localhost:3000/user/getUser/",
+
+    FAVORITES_CREATE = "http://localhost:3000/favorites/create/",
+    FAVORITES_LIST = "http://localhost:3000/favorites/list/",
+    FAVORITE_CHECK_WITHOUT_ID = "http://localhost:3000/favorites/check/",
+    FAVORITES_DELETE_BY_ID_WITHOUT_ID = "http://localhost:3000/favorites/deleteById/",
+    FAVORITES_DELETE_ALL = "http://localhost:3000/favorites/deleteAll/",
 }

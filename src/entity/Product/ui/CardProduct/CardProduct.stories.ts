@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CardProduct } from "./CardProduct";
 import { Currency } from "shared/types/Currency";
+import { CardProduct } from "./CardProduct";
 
 const meta = {
-    title: "shared/CardProduct",
+    title: "entity/Product/CardProduct",
     component: CardProduct,
     parameters: {
         layout: "centered",
@@ -11,7 +11,7 @@ const meta = {
     args: {
         product: {
             id: 2,
-            imagesCount: 0,
+            imagesCount: 1,
             title: "Подкрадули",
             description: "Нереально мощные",
             price: 1000,

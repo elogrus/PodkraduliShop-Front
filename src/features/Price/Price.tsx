@@ -1,4 +1,3 @@
-import { ProductType } from "entity/Product/types/Product";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import { TextColor, TextMods, TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
@@ -6,13 +5,14 @@ import * as cls from "./Price.module.scss";
 
 interface PriceProps {
     className?: string;
-    product: ProductType;
+    price: number;
+    currency: string;
+    discount?: number;
 }
 
 export const Price = (props: PriceProps) => {
-    const { className, product, ...otherProps } = props;
+    const { className, price, currency, discount = 0, ...otherProps } = props;
 
-    const { price, currency, discount = 0 } = product;
     return (
         <div className={cmcl(cls.Price, {}, [className])} {...otherProps}>
             <span className={cls.PriceText}>
@@ -49,6 +49,17 @@ export const Price = (props: PriceProps) => {
                             {currency}
                         </Text>
                     </>
+                )}
+            </span>
+            <span>
+                {discount !== 0 && (
+                    <Text
+                        color={TextColor.CL9}
+                        preset={TextPreset.REGULAR}
+                        mods={[TextMods.BOLD]}
+                    >
+                        -{discount}%
+                    </Text>
                 )}
             </span>
         </div>

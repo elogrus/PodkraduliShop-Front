@@ -1,8 +1,9 @@
 import { ReactElement, useEffect, useRef, useState } from 'react';
 import { compareClasses as cmcl } from 'shared/lib/classNames';
 import { Button } from '../Button/Button';
-import { ArrowIcon } from '../Icons/ArrowIcon/ArrowIcon';
+import ArrowIcon from 'shared/assets/arrow.svg';
 import * as cls from './Carousel.module.scss';
+import { getCssVariable } from 'shared/lib/getCssVariable';
 
 interface CarouselProps {
     className?: string;
@@ -62,7 +63,7 @@ export const Carousel = (props: CarouselProps) => {
                 </div>
             </div>
             <Button className={cls.Button} onClick={scrollNext}>
-                <ArrowIcon className={cls.Arrow} />
+                <ArrowIcon fill={getCssVariable('--cl5')} className={cls.Arrow} />
             </Button>
         </div >
     );

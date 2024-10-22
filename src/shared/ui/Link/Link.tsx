@@ -25,7 +25,7 @@ export const Link = (props: LinkProps) => {
             to={to}
         >
             {typeof children === "string" ? (
-                <Text {...textProps} preset={TextPreset.REGULAR}>
+                <Text preset={TextPreset.REGULAR} {...textProps}>
                     {children}
                 </Text>
             ) : (

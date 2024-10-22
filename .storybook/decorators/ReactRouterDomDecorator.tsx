@@ -5,4 +5,4 @@ export const ReactRouterDomDecorator = (Story) => (
     <BrowserRouter>
         <Story />
     </BrowserRouter>
-)
+);

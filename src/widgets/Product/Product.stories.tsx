@@ -8,7 +8,7 @@ const meta = {
         layout: "centered",
     },
     args: {
-        productId: "cat1",
+        productId: 0,
     },
     decorators: [
         (Story) => (
@@ -24,12 +24,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Regular: Story = {
     args: {
-        productId: "cat1",
+        productId: 0,
     },
 };
 
 export const OnError: Story = {
     args: {
-        productId: "not_exist_id",
+        productId: -2,
     },
 };

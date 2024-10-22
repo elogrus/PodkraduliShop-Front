@@ -3,9 +3,9 @@ import { Paths } from "shared/config/Paths";
 import { URLs } from "shared/consts/urls";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import { Link } from "shared/ui/Link/Link";
-import { TextColor, TextPreset } from "shared/ui/Text/types/Text";
+import { TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
-import { Price } from "../Price/Price";
+import { Price } from "../../../../features/Price/Price";
 import * as cls from "./CardProduct.module.scss";
 
 interface CardProductProps {
@@ -31,19 +31,14 @@ export const CardProduct = (props: CardProductProps) => {
             ></img>
 
             <div className={cls.CardProductWrapper}>
-                <Text preset={TextPreset.TITLE}>{product.title}</Text>
+                <Text preset={TextPreset.SUBTITLE}>{product.title}</Text>
                 <Text preset={TextPreset.REGULAR}>{product.description}</Text>
-                {/* <CardPrice
-                    price={product.price}
+                <Price
                     currency={product.currency}
+                    price={product.price}
                     discount={product.discount}
-                /> */}
-                <Price product={product} />
+                />
             </div>
-
-            <Text color={TextColor.CL0} className={cls.CardProductLink}>
-                Перейти
-            </Text>
         </Link>
     );
 };

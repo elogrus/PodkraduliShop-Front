@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import { Button } from "shared/ui/Button/Button";
-import { ImageIcon } from "shared/ui/Icons/ImageIcon/ImageIcon";
 import { TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
 import { uploadImage } from "../lib/requests";
 import { validateFiles } from "../lib/validations";
 import * as cls from "./ImageUploader.module.scss";
 import { toast } from "react-toastify";
+import ImageIcon from "shared/assets/image.svg";
+import { getCssVariable } from "shared/lib/getCssVariable";
 
 interface ImageUploaderProps {
     className?: string;
@@ -62,7 +63,7 @@ export const ImageUploader = (props: ImageUploaderProps) => {
                         />
                     </div>
                 )}
-                {!selectedImage && <ImageIcon className={cls.icon} />}
+                {!selectedImage && <ImageIcon fill={getCssVariable('--cl0')} className={cls.icon} />}
 
                 <input
                     type="file"

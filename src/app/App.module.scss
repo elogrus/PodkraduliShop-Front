@@ -14,6 +14,11 @@ a {
     color: var(--cl5);
 }
 
+svg {
+    width: fit-content;
+    height: fit-content;
+}
+
 .App {
     display: flex;
     flex-direction: column;

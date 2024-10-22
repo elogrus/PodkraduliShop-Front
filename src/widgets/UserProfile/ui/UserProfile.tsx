@@ -29,7 +29,7 @@ export const UserProfile = (props: UserProfileProps) => {
                 (result) => {
                     setUser(result.data);
                     document.title =
-                        result.data.name + StringsConsts.PAGE_TITLE_PART;
+                        result?.data?.name + StringsConsts.PAGE_TITLE_PART;
                 }
             );
         })();

@@ -1,0 +1,10 @@
+.FavoritesPage {
+    width: 100%;
+    min-height: var(--page_fullheight);
+    padding: 0 var(--page_horizontal_padding);
+    padding-top: var(--page_top_padding);
+    padding-bottom: var(--page_bottom_padding);
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+}

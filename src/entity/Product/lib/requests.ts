@@ -17,7 +17,7 @@ export const getProductsList = async (
         return response.data;
     } catch (error) {
         return {
-            error: error.message,
+            error: error?.message || error.message,
         };
     }
 };
@@ -36,7 +36,7 @@ export const getProductById = async (
         // response.data;
     } catch (error) {
         return {
-            error: error.message,
+            error: error?.message || error.message,
         };
     }
 };

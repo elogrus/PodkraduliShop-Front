@@ -1,8 +1,7 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import webpackConfig from "../webpack.config";
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-
 
 const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -13,7 +12,7 @@ const config: StorybookConfig = {
         "@storybook/addon-essentials",
         "@chromatic-com/storybook",
         "@storybook/addon-interactions",
-        "@storybook/addon-styling-webpack"
+        "@storybook/addon-styling-webpack",
     ],
     framework: {
         name: "@storybook/react-webpack5",
@@ -23,7 +22,7 @@ const config: StorybookConfig = {
         jsc: {
             transform: {
                 react: {
-                    runtime: 'automatic',
+                    runtime: "automatic",
                 },
             },
         },
@@ -37,14 +36,15 @@ const config: StorybookConfig = {
         const rules = [
             {
                 test: /\.s[ac]ss$/i,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
-            }
-        ]
+                use: ["style-loader", "css-loader", "sass-loader"],
+            },
+        ];
         // @ts-ignore
-        config.module.rules.push(...rules)
+        config.module.rules.push(...rules);
 
         // @ts-ignore
-        if (configType === 'PRODUCTION') config.plugins.push(new MiniCssExtractPlugin())
+        if (configType === "PRODUCTION")
+            config.plugins.push(new MiniCssExtractPlugin());
 
         // @ts-ignore
         config.resolve.plugins = [new TsconfigPathsPlugin()];

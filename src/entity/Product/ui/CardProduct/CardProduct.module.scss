@@ -1,34 +1,28 @@
 .CardProduct {
-    background-color: var(--cl1);
+    background-color: var(--cl0);
     width: fit-content;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    align-items: start;
     overflow: hidden;
 }
 
 .CardProductWrapper {
     display: flex;
-    padding: 15px;
+    padding: 8px 15px;
     position: relative;
     flex-direction: column;
     justify-content: space-between;
-    gap: 6px;
     max-width: 250px;
     height: 100%;
+    gap: 5px;
 }
 
 .CardProductImage {
     max-height: 250px;
     object-fit: cover;
+    border-radius: 15px;
     width: 100%;
-}
-
-.CardProductPriceWrapper {
-    do: do;
 }
 
 .CardProductLink {
@@ -39,6 +33,4 @@
     bottom: 0;
     left: 0;
     padding: 8px 0;
-    // border-bottom-right-radius: 15px;
-    // border-bottom-left-radius: 15px;
 }

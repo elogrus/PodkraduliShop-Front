@@ -23,7 +23,7 @@ export const authReq = async (
         );
         return response.data;
     } catch (error) {
-        return { error: error.response.data.error };
+        return { error: error?.response?.data?.error || error.message };
     }
 };
 
@@ -37,7 +37,7 @@ export const getUserProfileInfoReq = async (
         return response.data;
     } catch (error) {
         return {
-            error: error.response.data.error,
+            error: error?.response?.data?.error || error.message,
         };
     }
 };
@@ -61,7 +61,7 @@ export const changeNameReq = async (
         return response.data;
     } catch (error) {
         return {
-            error: error.response.data.error,
+            error: error?.response?.data?.error || error.message,
         };
     }
 };
@@ -85,7 +85,7 @@ export const changeAboutReq = async (
         return response.data;
     } catch (error) {
         return {
-            error: error.response.data.error,
+            error: error?.response?.data?.error || error.message,
         };
     }
 };
@@ -108,11 +108,10 @@ export const changePasswordReq = async (
                 },
             }
         );
-        return response;
+        return response.data;
     } catch (error) {
         return {
-            // error: error.response.data.error,
-            error: error,
+            error: error?.response?.data?.error || error.message,
         };
     }
 };
@@ -125,7 +124,7 @@ export const updateTokenReq = async (): Promise<ResponseType<AuthResponse>> => {
         return response.data;
     } catch (error) {
         return {
-            error: error.response.data.error,
+            error: error?.response?.data?.error || error.message,
         };
     }
 };

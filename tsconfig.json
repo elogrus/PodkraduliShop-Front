@@ -10,9 +10,7 @@
         "jsx": "react-jsx",
         "baseUrl": ".",
         "paths": {
-            "*": [
-                "./src/*"
-            ]
+            "*": ["./src/*"]
         },
         "plugins": [
             {
@@ -20,9 +18,7 @@
                 "options": {
                     "rendererOptions": {
                         "sass": {
-                            "includePaths": [
-                                "src/**/*.scss"
-                            ]
+                            "includePaths": ["src/**/*.scss"]
                         }
                     }
                 }

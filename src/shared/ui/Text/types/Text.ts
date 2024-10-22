@@ -19,5 +19,8 @@ export enum TextColor {
     CL3 = 'color_cl3',
     CL4 = 'color_cl4',
     CL5 = 'color_cl5',
-    CL6 = 'color_cl6'
+    CL6 = 'color_cl6',
+    CL7 = 'color_cl7',
+    CL8 = 'color_cl8',
+    CL9 = 'color_cl9',
 }

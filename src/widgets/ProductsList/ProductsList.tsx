@@ -1,14 +1,14 @@
 import { getProductsList } from "entity/Product/lib/requests";
+import { ProductType } from "entity/Product/types/Product";
 import { CardProduct } from "entity/Product/ui/CardProduct/CardProduct";
+import { useMemo, useState } from "react";
 import { useLoading } from "shared/hooks/useLoading";
 import { compareClasses as cmcl } from "shared/lib/classNames";
 import { Loader } from "shared/ui/Loader/Loader";
+import { Select } from "shared/ui/Select/Select";
 import { TextPreset } from "shared/ui/Text/types/Text";
 import { Text } from "shared/ui/Text/ui/Text";
 import * as cls from "./ProductsList.module.scss";
-import { Select } from "shared/ui/Select/Select";
-import { useState } from "react";
-import { ProductType } from "entity/Product/types/Product";
 
 interface ProductsListProps {
     className?: string;
@@ -31,33 +31,30 @@ export const ProductsList = (props: ProductsListProps) => {
         FilterValues.ALPHABET_DOWN
     );
 
-    let filteredResult: ProductType[] = [];
-    if (result && result.data) {
-        switch (filter) {
-            case FilterValues.ALPHABET_DOWN:
-                filteredResult = result.data.sort((a, b) =>
-                    a.title.localeCompare(b.title)
-                );
-                break;
-            case FilterValues.ALPHABET_UP:
-                filteredResult = result.data.sort((a, b) =>
-                    b.title.localeCompare(a.title)
-                );
-                break;
-            case FilterValues.CHEAP:
-                filteredResult = result.data.sort((a, b) =>
-                    b.price < a.price ? 1 : -1
-                );
-                break;
-            case FilterValues.EXPENSIVE:
-                filteredResult = result.data.sort((a, b) =>
-                    b.price > a.price ? 1 : -1
-                );
-                break;
-            default:
-                break;
+    let filteredResult = useMemo<ProductType[]>(() => {
+        if (result && result.data) {
+            switch (filter) {
+                case FilterValues.ALPHABET_DOWN:
+                    return result.data.sort((a, b) =>
+                        a.title.localeCompare(b.title)
+                    );
+                case FilterValues.ALPHABET_UP:
+                    return result.data.sort((a, b) =>
+                        b.title.localeCompare(a.title)
+                    );
+                case FilterValues.CHEAP:
+                    return result.data.sort((a, b) =>
+                        b.price < a.price ? 1 : -1
+                    );
+                case FilterValues.EXPENSIVE:
+                    return result.data.sort((a, b) =>
+                        b.price > a.price ? 1 : -1
+                    );
+                default:
+                    return [];
+            }
         }
-    }
+    }, [result, filter]);
 
     return (
         <div

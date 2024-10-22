@@ -1,0 +1,45 @@
+.Favorite {
+    --arrowWidth: 2em;
+    display: flex;
+    width: 100%;
+    background-color: var(--cl0);
+    border: 1px solid var(--cl3);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5px calc(10px + var(--arrowWidth)) 5px 5px;
+    gap: 20px;
+    position: relative;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -3px;
+    width: 100%;
+    gap: 3px;
+    text-wrap: wrap;
+}
+
+.arrowWrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--arrowWidth);
+    height: 100%;
+    background-color: var(--cl3);
+    top: 0;
+    right: 0;
+}
+
+.arrow {
+    height: 1.3em;
+    width: var(--arrowWidth);
+}
