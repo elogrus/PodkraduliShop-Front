@@ -10,4 +10,4 @@ What I used in development: <br />
 · [Sass](https://sass-lang.com/) <br />
 · [Feature-Sliced Design methodology](https://feature-sliced.design/) <br />
 · [Storybook](https://storybook.js.org/) <br />
-· [JWT Tokens]([https://storybook.js.org/](https://jwt.io/)) <br />
+· [JWT Tokens](https://jwt.io/) <br />
