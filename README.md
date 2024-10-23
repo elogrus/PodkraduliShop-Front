@@ -1,8 +1,15 @@
-PodkraduliShop - shoes shop.
+PodkraduliShop - онлайн-каталог обуви.
+Backend: https://github.com/elogrus/PodkraduliShop-Back
 
-Back: https://github.com/elogrus/PodkraduliShop-Back
+В приложении реализованы следующие функции:
+· Каталог товаров с фильтрацией
+· Вкладка "избранное"
+· Авторизация (через JWT токены)
+· Настройка профиля (изменение имени, пароля, аватара, описания профиля)
+· Просмотр профиля любого пользователя
+· Роли пользователей 
 
-What I used in development: <br />
+При разработке использовано: <br />
 · [Webpack](https://webpack.js.org/) <br />
 · [React](https://react.dev/) <br />
 · [TypeScript](https://www.typescriptlang.org/) <br />
